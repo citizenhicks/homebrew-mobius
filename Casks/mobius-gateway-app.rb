@@ -8,9 +8,10 @@ cask "mobius-gateway-app" do
   homepage "https://github.com/citizenhicks/mobius"
 
   depends_on arch: :arm64
-  depends_on macos: ">= :tahoe"
+  depends_on macos: :tahoe
 
   app "Mobius Gateway.app"
+
   uninstall quit: "app.mobius.gateway"
 
   caveats do

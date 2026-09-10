@@ -1,19 +1,22 @@
 class MobiusGateway < Formula
   desc "Headless host for möbius Bots and sessions"
   homepage "https://github.com/citizenhicks/mobius"
-  version "0.15.11"
   license "Apache-2.0"
 
   on_macos do
     depends_on arch: :arm64
-    url "https://github.com/citizenhicks/mobius/releases/download/mobius-gateway-v#{version}/mobius-gateway-#{version}-aarch64-apple-darwin.tar.gz"
-    sha256 "99bd5ce720afd468b46bd0ebb4ac81fe84d9ccffb485009a69c132774bce0dd9"
+    on_arm do
+      url "https://github.com/citizenhicks/mobius/releases/download/mobius-gateway-v0.15.11/mobius-gateway-0.15.11-aarch64-apple-darwin.tar.gz"
+      sha256 "99bd5ce720afd468b46bd0ebb4ac81fe84d9ccffb485009a69c132774bce0dd9"
+    end
   end
 
   on_linux do
     depends_on arch: :x86_64
-    url "https://github.com/citizenhicks/mobius/releases/download/mobius-gateway-v#{version}/mobius-gateway-#{version}-x86_64-unknown-linux-gnu.tar.gz"
-    sha256 "d1f66d0188358aee401b4925b6a5f7b05640ad9e98d9e44397318be6f5b06019"
+    on_intel do
+      url "https://github.com/citizenhicks/mobius/releases/download/mobius-gateway-v0.15.11/mobius-gateway-0.15.11-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "d1f66d0188358aee401b4925b6a5f7b05640ad9e98d9e44397318be6f5b06019"
+    end
   end
 
   def install
@@ -25,8 +28,8 @@ class MobiusGateway < Formula
 
   def caveats
     <<~EOS
-      Run `mobius-gateway install` to set up and start your local gateway.
-      Run `mobius-gateway uninstall` before uninstalling an installed service.
+      Run `mobius-gateway` to open gateway setup.
+      Stop a running gateway with `mobius-gateway exit` before upgrading or uninstalling.
     EOS
   end
 

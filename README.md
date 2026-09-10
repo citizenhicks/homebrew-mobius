@@ -11,7 +11,7 @@ The CLI includes the gateway as a dependency. For a gateway without the terminal
 
 ```sh
 brew install mobius-gateway
-mobius-gateway install
+mobius-gateway
 ```
 
 Install the Mac menu bar app:
@@ -28,11 +28,8 @@ are available for Apple Silicon Macs and x86-64 Linux.
 The current app release is not notarized; macOS may require first-launch approval
 in System Settings → Privacy & Security. Homebrew does not bypass Gatekeeper.
 
-Upgrade using `brew update` and `brew upgrade`. An installed gateway service copies
-its executable into its managed installation: run `mobius-gateway install` after an
-upgrade to update that service. Quit and reopen the menu bar app after upgrading it.
-
-Uninstalling packages keeps your gateway data. Run `mobius-gateway uninstall` first
-if you also want to remove the background service.
+Upgrade using `brew update` and `brew upgrade`. Stop a running gateway with
+`mobius-gateway exit` before upgrading, then reopen the CLI or menu bar app.
+Uninstalling packages keeps your gateway data.
 
 Release archives, source, LICENSE and NOTICE: [citizenhicks/mobius](https://github.com/citizenhicks/mobius).
