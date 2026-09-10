@@ -4,6 +4,7 @@ Install the terminal client and gateway:
 
 ```sh
 brew tap citizenhicks/mobius
+brew trust citizenhicks/mobius
 brew install mobius-cli
 ```
 
