@@ -17,14 +17,14 @@ jobs:
         run: |
           brew tap citizenhicks/mobius "$GITHUB_WORKSPACE"
           brew trust --formula citizenhicks/mobius/mobius-cli citizenhicks/mobius/mobius-gateway
-          brew trust --cask citizenhicks/mobius/mobius-gateway-app
+          brew trust --cask citizenhicks/mobius/mobius-app
       - name: Check package definitions
         run: |
-          brew style citizenhicks/mobius/mobius-cli citizenhicks/mobius/mobius-gateway citizenhicks/mobius/mobius-gateway-app
+          brew style citizenhicks/mobius/mobius-cli citizenhicks/mobius/mobius-gateway citizenhicks/mobius/mobius-app
           brew audit --strict citizenhicks/mobius/mobius-cli citizenhicks/mobius/mobius-gateway
       - name: Install and test binaries
         run: |
           brew install citizenhicks/mobius/mobius-cli
           brew test citizenhicks/mobius/mobius-cli citizenhicks/mobius/mobius-gateway
       - name: Verify app archive
-        run: brew fetch --cask citizenhicks/mobius/mobius-gateway-app
+        run: brew fetch --cask citizenhicks/mobius/mobius-app

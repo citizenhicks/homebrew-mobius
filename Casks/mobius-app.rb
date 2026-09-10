@@ -1,16 +1,16 @@
-cask "mobius-gateway-app" do
-  version "0.15.11"
-  sha256 "412eb08a29d19ba4c9e3443e49304742fdcba8578ebb57a43c7cbd3cf7670d6b"
+cask "mobius-app" do
+  version "0.15.14"
+  sha256 "6a9124b918bb1a58148cb0aff0f9063a1c7630dc989b031860c3057006e2d150"
 
-  url "https://github.com/citizenhicks/mobius/releases/download/mobius-gateway-v#{version}/mobius-gateway-menubar-#{version}-macos-ARM64-unnotarized.zip"
-  name "möbius Gateway"
+  url "https://github.com/citizenhicks/mobius/releases/download/mobius-gateway-v#{version}/mobius-app-#{version}-macos-ARM64-unnotarized.zip"
+  name "möbius-app"
   desc "Menu bar companion and local gateway for möbius"
   homepage "https://github.com/citizenhicks/mobius"
 
   depends_on arch: :arm64
   depends_on macos: :tahoe
 
-  app "Mobius Gateway.app"
+  app "möbius-app.app"
 
   uninstall quit: "app.mobius.gateway"
 

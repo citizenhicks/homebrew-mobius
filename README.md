@@ -18,8 +18,8 @@ mobius-gateway
 Install the Mac menu bar app:
 
 ```sh
-brew install --cask mobius-gateway-app
-open -a "Mobius Gateway"
+brew install --cask mobius-app
+open -a "möbius-app"
 ```
 
 The app bundles its gateway and uses the same local installation as the command-line tools.
