@@ -18,33 +18,38 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Update package definitions
         run: |
-          tag="$(gh api "repos/$SOURCE_REPOSITORY/releases" --jq \
+          cli_tag="$(gh api "repos/$SOURCE_REPOSITORY/releases" --jq \
             '[.[] | select(.tag_name | startswith("mobius-cli-v"))][0].tag_name')"
-          version="${tag#mobius-cli-v}"
-          [[ "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]
-          gh release view "mobius-gateway-v$version" --repo "$SOURCE_REPOSITORY" >/dev/null
+          gateway_tag="$(gh api "repos/$SOURCE_REPOSITORY/releases" --jq \
+            '[.[] | select(.tag_name | startswith("mobius-gateway-v"))][0].tag_name')"
+          cli_version="${cli_tag#mobius-cli-v}"
+          gateway_version="${gateway_tag#mobius-gateway-v}"
+          [[ "$cli_version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]
+          [[ "$gateway_version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]
 
           mkdir checksums
-          gh release download "$tag" --repo "$SOURCE_REPOSITORY" \
+          gh release download "$cli_tag" --repo "$SOURCE_REPOSITORY" \
             --pattern '*.sha256' --dir checksums
-          gh release download "mobius-gateway-v$version" --repo "$SOURCE_REPOSITORY" \
+          gh release download "$gateway_tag" --repo "$SOURCE_REPOSITORY" \
             --pattern '*.sha256' --dir checksums
 
           checksum() { awk 'NR == 1 { print $1 }' "checksums/$1.sha256"; }
-          export VERSION="$version"
-          export CLI_MAC_SHA="$(checksum "mobius-$version-aarch64-apple-darwin.tar.gz")"
-          export CLI_LINUX_SHA="$(checksum "mobius-$version-x86_64-unknown-linux-gnu.tar.gz")"
-          export GATEWAY_MAC_SHA="$(checksum "mobius-gateway-$version-aarch64-apple-darwin.tar.gz")"
-          export GATEWAY_LINUX_SHA="$(checksum "mobius-gateway-$version-x86_64-unknown-linux-gnu.tar.gz")"
-          export APP_SHA="$(checksum "mobius-app-$version-macos-ARM64.zip")"
-          echo "VERSION=$version" >> "$GITHUB_ENV"
+          CLI_VERSION="$cli_version"
+          GATEWAY_VERSION="$gateway_version"
+          CLI_MAC_SHA="$(checksum "mobius-$cli_version-aarch64-apple-darwin.tar.gz")"
+          CLI_LINUX_SHA="$(checksum "mobius-$cli_version-x86_64-unknown-linux-gnu.tar.gz")"
+          GATEWAY_MAC_SHA="$(checksum "mobius-gateway-$gateway_version-aarch64-apple-darwin.tar.gz")"
+          GATEWAY_LINUX_SHA="$(checksum "mobius-gateway-$gateway_version-x86_64-unknown-linux-gnu.tar.gz")"
+          APP_SHA="$(checksum "mobius-app-$gateway_version-macos-ARM64.zip")"
+          export CLI_VERSION GATEWAY_VERSION CLI_MAC_SHA CLI_LINUX_SHA
+          export GATEWAY_MAC_SHA GATEWAY_LINUX_SHA APP_SHA
 
           ruby <<'RUBY'
-          def update(path, tag, checksums)
+          def update(path, tag, version, checksums)
             content = File.read(path)
             match = content.match(/#{tag}-v(\d+\.\d+\.\d+)/) or raise "missing #{tag} version"
             current = match[1]
-            content.gsub!(current, ENV.fetch("VERSION"))
+            content.gsub!(current, version)
             checksums.each do |asset, variable|
               pattern = /(#{Regexp.escape(asset)}"\n\s+sha256 ")[0-9a-f]{64}/
               raise "missing #{asset} in #{path}" unless content.sub!(pattern, "\\1#{ENV.fetch(variable)}")
@@ -52,17 +57,18 @@ jobs:
             File.write(path, content)
           end
 
-          version = ENV.fetch("VERSION")
-          update("Formula/mobius-cli.rb", "mobius-cli", {
-            "mobius-#{version}-aarch64-apple-darwin.tar.gz" => "CLI_MAC_SHA",
-            "mobius-#{version}-x86_64-unknown-linux-gnu.tar.gz" => "CLI_LINUX_SHA",
+          cli_version = ENV.fetch("CLI_VERSION")
+          gateway_version = ENV.fetch("GATEWAY_VERSION")
+          update("Formula/mobius-cli.rb", "mobius-cli", cli_version, {
+            "mobius-#{cli_version}-aarch64-apple-darwin.tar.gz" => "CLI_MAC_SHA",
+            "mobius-#{cli_version}-x86_64-unknown-linux-gnu.tar.gz" => "CLI_LINUX_SHA",
           })
-          update("Formula/mobius-gateway.rb", "mobius-gateway", {
-            "mobius-gateway-#{version}-aarch64-apple-darwin.tar.gz" => "GATEWAY_MAC_SHA",
-            "mobius-gateway-#{version}-x86_64-unknown-linux-gnu.tar.gz" => "GATEWAY_LINUX_SHA",
+          update("Formula/mobius-gateway.rb", "mobius-gateway", gateway_version, {
+            "mobius-gateway-#{gateway_version}-aarch64-apple-darwin.tar.gz" => "GATEWAY_MAC_SHA",
+            "mobius-gateway-#{gateway_version}-x86_64-unknown-linux-gnu.tar.gz" => "GATEWAY_LINUX_SHA",
           })
           app = File.read("Casks/mobius-app.rb")
-          app.sub!(/version "[^"]+"/, "version \"#{version}\"") or raise "missing app version"
+          app.sub!(/version "[^"]+"/, "version \"#{gateway_version}\"") or raise "missing app version"
           app.sub!(/sha256 "[0-9a-f]{64}"/, "sha256 \"#{ENV.fetch("APP_SHA")}\"") or raise "missing app checksum"
           File.write("Casks/mobius-app.rb", app)
           RUBY
@@ -74,5 +80,5 @@ jobs:
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add Formula Casks
-          git commit -m "Release mobius $VERSION packages"
+          git commit -m "Update mobius packages"
           git push
