@@ -1,6 +1,6 @@
 cask "mobius-app" do
-  version "0.15.41"
-  sha256 "a270af76d270e4f7ffdf1ec3f0db0172cf668702f91f567bd63d04468d9fafaf"
+  version "0.15.42"
+  sha256 "a475d8e2010f7db60cc8ecf51c63fb418500349f191009712f1c61aa2a852f7b"
 
   url "https://github.com/citizenhicks/mobius/releases/download/mobius-gateway-v#{version}/mobius-app-#{version}-macos-ARM64.zip"
   name "möbius-app"
