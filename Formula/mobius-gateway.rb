@@ -29,7 +29,8 @@ class MobiusGateway < Formula
   def caveats
     <<~EOS
       Run `mobius-gateway` to open gateway setup.
-      Stop a running gateway with `mobius-gateway exit` before upgrading or uninstalling.
+      Starting a newer gateway replaces an older running gateway automatically.
+      Stop a running gateway with `mobius-gateway exit` before uninstalling.
     EOS
   end
 

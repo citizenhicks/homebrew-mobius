@@ -40,9 +40,8 @@ jobs:
           CLI_LINUX_SHA="$(checksum "mobius-$cli_version-x86_64-unknown-linux-gnu.tar.gz")"
           GATEWAY_MAC_SHA="$(checksum "mobius-gateway-$gateway_version-aarch64-apple-darwin.tar.gz")"
           GATEWAY_LINUX_SHA="$(checksum "mobius-gateway-$gateway_version-x86_64-unknown-linux-gnu.tar.gz")"
-          APP_SHA="$(checksum "mobius-app-$gateway_version-macos-ARM64.zip")"
           export CLI_VERSION GATEWAY_VERSION CLI_MAC_SHA CLI_LINUX_SHA
-          export GATEWAY_MAC_SHA GATEWAY_LINUX_SHA APP_SHA
+          export GATEWAY_MAC_SHA GATEWAY_LINUX_SHA
 
           ruby <<'RUBY'
           def update(path, tag, version, checksums)
@@ -67,10 +66,6 @@ jobs:
             "mobius-gateway-#{gateway_version}-aarch64-apple-darwin.tar.gz" => "GATEWAY_MAC_SHA",
             "mobius-gateway-#{gateway_version}-x86_64-unknown-linux-gnu.tar.gz" => "GATEWAY_LINUX_SHA",
           })
-          app = File.read("Casks/mobius-app.rb")
-          app.sub!(/version "[^"]+"/, "version \"#{gateway_version}\"") or raise "missing app version"
-          app.sub!(/sha256 "[0-9a-f]{64}"/, "sha256 \"#{ENV.fetch("APP_SHA")}\"") or raise "missing app checksum"
-          File.write("Casks/mobius-app.rb", app)
           RUBY
 
       - name: Publish update
@@ -79,6 +74,6 @@ jobs:
           git diff --quiet && exit 0
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add Formula Casks
+          git add Formula
           git commit -m "Update mobius packages"
           git push

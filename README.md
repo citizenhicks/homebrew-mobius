@@ -15,21 +15,23 @@ brew install mobius-gateway
 mobius-gateway
 ```
 
-Install the Mac menu bar app:
+The retired Mac menu bar app remains available at 0.15.49:
 
 ```sh
 brew install --cask mobius-app
 open -a "möbius-app"
 ```
 
-The app bundles its gateway and uses the same local installation as the command-line tools.
-The current app requires macOS 26 or newer on Apple Silicon. CLI and gateway archives
+The legacy app bundles its gateway and uses the same local installation as the command-line tools.
+It requires macOS 26 or newer on Apple Silicon. The current native desktop and SwiftUI
+apps are maintained in separate repositories. CLI and gateway archives
 are available for Apple Silicon Macs and x86-64 Linux.
 
 The Mac app is Developer ID signed and notarized.
 
-Upgrade using `brew update` and `brew upgrade`. Stop a running gateway with
-`mobius-gateway exit` before upgrading, then reopen the CLI or menu bar app.
+Upgrade using `brew update` and `brew upgrade`, then reopen the CLI or run
+`mobius-gateway`. Starting a newer gateway automatically replaces an older running
+version. Stop the gateway with `mobius-gateway exit` before uninstalling.
 Uninstalling packages keeps your gateway data.
 
 Release archives, source, LICENSE and NOTICE: [citizenhicks/mobius](https://github.com/citizenhicks/mobius).
