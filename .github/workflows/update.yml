@@ -8,9 +8,15 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: update-packages
+  cancel-in-progress: false
+
 jobs:
   update:
     runs-on: ubuntu-latest
+    outputs:
+      revision: ${{ steps.publish.outputs.revision }}
     env:
       GH_TOKEN: ${{ github.token }}
       SOURCE_REPOSITORY: citizenhicks/mobius
@@ -18,14 +24,24 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Update package definitions
         run: |
-          cli_tag="$(gh api "repos/$SOURCE_REPOSITORY/releases" --jq \
-            '[.[] | select(.tag_name | startswith("mobius-cli-v"))][0].tag_name')"
-          gateway_tag="$(gh api "repos/$SOURCE_REPOSITORY/releases" --jq \
-            '[.[] | select(.tag_name | startswith("mobius-gateway-v"))][0].tag_name')"
+          latest_tag() {
+            gh api --paginate "repos/$SOURCE_REPOSITORY/releases?per_page=100" --jq \
+              '.[] | select(.draft == false and .prerelease == false) | .tag_name' |
+              grep -E "^$1-v[0-9]+\.[0-9]+\.[0-9]+$" | sort -V | tail -1
+          }
+          cli_tag="$(latest_tag mobius-cli)"
           cli_version="${cli_tag#mobius-cli-v}"
-          gateway_version="${gateway_tag#mobius-gateway-v}"
-          [[ "$cli_version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]
-          [[ "$gateway_version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]
+          # The CLI release owns the compatible gateway version; publishing a newer
+          # gateway alone must not promote it beside an older client.
+          gateway_requirement="$(gh api \
+            "repos/$SOURCE_REPOSITORY/contents/crates/mobius-cli/Cargo.toml?ref=$cli_tag" \
+            --jq .content | base64 --decode | python3 -c \
+            'import sys, tomllib; print(tomllib.load(sys.stdin.buffer)["dependencies"]["mobius-gateway"]["version"])')"
+          [[ "$gateway_requirement" =~ ^=([0-9]+\.[0-9]+\.[0-9]+)$ ]]
+          gateway_version="${BASH_REMATCH[1]}"
+          gateway_tag="mobius-gateway-v$gateway_version"
+          gh release view "$gateway_tag" --repo "$SOURCE_REPOSITORY" \
+            --json isDraft,isPrerelease | jq -e '.isDraft == false and .isPrerelease == false' >/dev/null
 
           mkdir checksums
           gh release download "$cli_tag" --repo "$SOURCE_REPOSITORY" \
@@ -33,7 +49,12 @@ jobs:
           gh release download "$gateway_tag" --repo "$SOURCE_REPOSITORY" \
             --pattern '*.sha256' --dir checksums
 
-          checksum() { awk 'NR == 1 { print $1 }' "checksums/$1.sha256"; }
+          checksum() {
+            local value
+            value="$(awk 'NR == 1 { print $1 }' "checksums/$1.sha256")"
+            [[ "$value" =~ ^[0-9a-f]{64}$ ]] || return 1
+            printf '%s' "$value"
+          }
           CLI_VERSION="$cli_version"
           GATEWAY_VERSION="$gateway_version"
           CLI_MAC_SHA="$(checksum "mobius-$cli_version-aarch64-apple-darwin.tar.gz")"
@@ -69,11 +90,22 @@ jobs:
           RUBY
 
       - name: Publish update
+        id: publish
         run: |
           git diff --check
-          git diff --quiet && exit 0
+          if git diff --quiet; then
+            echo "revision=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add Formula
           git commit -m "Update mobius packages"
           git push
+          echo "revision=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+  check:
+    needs: update
+    uses: ./.github/workflows/check.yml
+    with:
+      ref: ${{ needs.update.outputs.revision }}
