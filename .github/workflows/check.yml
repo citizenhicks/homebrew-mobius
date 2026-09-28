@@ -15,24 +15,41 @@ permissions:
   contents: read
 
 jobs:
-  macos:
-    runs-on: macos-26
+  packages:
+    runs-on: ${{ matrix.os }}
+    env:
+      HOMEBREW_NO_AUTO_UPDATE: 1
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-26, ubuntu-24.04]
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ inputs.ref || github.sha }}
+          fetch-depth: 2
+      - name: Enable Linux Homebrew
+        if: runner.os == 'Linux'
+        run: echo "/home/linuxbrew/.linuxbrew/bin" >> "$GITHUB_PATH"
       - name: Load this tap
         run: |
           brew tap citizenhicks/mobius "$GITHUB_WORKSPACE"
           brew trust --formula citizenhicks/mobius/mobius-cli citizenhicks/mobius/mobius-gateway
-          brew trust --cask citizenhicks/mobius/mobius-app
       - name: Check package definitions
         run: |
-          brew style citizenhicks/mobius/mobius-cli citizenhicks/mobius/mobius-gateway citizenhicks/mobius/mobius-app
+          brew style citizenhicks/mobius/mobius-cli citizenhicks/mobius/mobius-gateway
           brew audit --strict citizenhicks/mobius/mobius-cli citizenhicks/mobius/mobius-gateway
-      - name: Install and test binaries
+      - name: Install, upgrade, and test binaries
         run: |
+          tap="$(brew --repo citizenhicks/mobius)"
+          git -C "$tap" checkout HEAD^ -- Formula
           brew install citizenhicks/mobius/mobius-cli
+          git -C "$tap" restore --source=HEAD --staged --worktree Formula
+          brew upgrade citizenhicks/mobius/mobius-cli citizenhicks/mobius/mobius-gateway
           brew test citizenhicks/mobius/mobius-cli citizenhicks/mobius/mobius-gateway
       - name: Verify app archive
-        run: brew fetch --cask citizenhicks/mobius/mobius-app
+        if: runner.os == 'macOS'
+        run: |
+          brew trust --cask citizenhicks/mobius/mobius-app
+          brew style citizenhicks/mobius/mobius-app
+          brew fetch --cask citizenhicks/mobius/mobius-app
