@@ -36,7 +36,8 @@ Uninstalling packages keeps your gateway data.
 
 The package updater follows stable CLI releases and uses the exact gateway version
 pinned by each CLI, so a gateway-only release cannot break installed clients. The update
-workflow runs package checks against its resulting commit, including updates made by
+workflow also updates the Mac cask from the latest stable desktop release and runs
+package checks against its resulting commit, including updates made by
 the Actions token.
 
 Release archives, source, LICENSE and NOTICE: [citizenhicks/mobius](https://github.com/citizenhicks/mobius).

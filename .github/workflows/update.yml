@@ -32,6 +32,8 @@ jobs:
           }
           cli_tag="$(latest_tag mobius-cli)"
           cli_version="${cli_tag#mobius-cli-v}"
+          desktop_tag="$(latest_tag mobius-desktop)"
+          desktop_version="${desktop_tag#mobius-desktop-v}"
           # The CLI release owns the compatible gateway version; publishing a newer
           # gateway alone must not promote it beside an older client.
           gateway_requirement="$(gh api \
@@ -49,6 +51,8 @@ jobs:
             --pattern '*.sha256' --dir checksums
           gh release download "$gateway_tag" --repo "$SOURCE_REPOSITORY" \
             --pattern '*.sha256' --dir checksums
+          gh release download "$desktop_tag" --repo "$SOURCE_REPOSITORY" \
+            --pattern "mobius-desktop-$desktop_version.zip.sha256" --dir checksums
 
           checksum() {
             local value
@@ -62,8 +66,11 @@ jobs:
           CLI_LINUX_SHA="$(checksum "mobius-$cli_version-x86_64-unknown-linux-gnu.tar.gz")"
           GATEWAY_MAC_SHA="$(checksum "mobius-gateway-$gateway_version-aarch64-apple-darwin.tar.gz")"
           GATEWAY_LINUX_SHA="$(checksum "mobius-gateway-$gateway_version-x86_64-unknown-linux-gnu.tar.gz")"
+          DESKTOP_VERSION="$desktop_version"
+          DESKTOP_SHA="$(checksum "mobius-desktop-$desktop_version.zip")"
           export CLI_VERSION GATEWAY_VERSION CLI_MAC_SHA CLI_LINUX_SHA
           export GATEWAY_MAC_SHA GATEWAY_LINUX_SHA
+          export DESKTOP_VERSION DESKTOP_SHA
 
           ruby <<'RUBY'
           def update(path, tag, version, checksums)
@@ -88,6 +95,11 @@ jobs:
             "mobius-gateway-#{gateway_version}-aarch64-apple-darwin.tar.gz" => "GATEWAY_MAC_SHA",
             "mobius-gateway-#{gateway_version}-x86_64-unknown-linux-gnu.tar.gz" => "GATEWAY_LINUX_SHA",
           })
+          path = "Casks/mobius-app.rb"
+          content = File.read(path)
+          raise "missing desktop version" unless content.sub!(/^  version "[0-9.]+"$/, "  version \"#{ENV.fetch('DESKTOP_VERSION')}\"")
+          raise "missing desktop checksum" unless content.sub!(/^  sha256 "[0-9a-f]{64}"$/, "  sha256 \"#{ENV.fetch('DESKTOP_SHA')}\"")
+          File.write(path, content)
           RUBY
 
       - name: Publish update
@@ -101,7 +113,7 @@ jobs:
           fi
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add Formula
+          git add Formula Casks
           git commit -m "Update mobius packages"
           git push
           echo "changed=true" >> "$GITHUB_OUTPUT"
