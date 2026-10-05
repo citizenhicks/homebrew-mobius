@@ -34,10 +34,6 @@ Upgrade using `brew update` and `brew upgrade`, then reopen the CLI or run
 version. Stop the gateway with `mobius-gateway exit` before uninstalling.
 Uninstalling packages keeps your gateway data.
 
-The package updater follows stable CLI releases and uses the exact gateway version
-pinned by each CLI, so a gateway-only release cannot break installed clients. The update
-workflow also updates the Mac cask from the latest stable desktop release and runs
-package checks against its resulting commit, including updates made by
-the Actions token.
+Packaging maintenance and checks: [Release procedure](docs/releasing.md).
 
 Release archives, source, LICENSE and NOTICE: [citizenhicks/mobius](https://github.com/citizenhicks/mobius).
