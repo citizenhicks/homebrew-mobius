@@ -29,8 +29,8 @@ and x86-64 Linux.
 
 The Mac app is Developer ID signed and notarized.
 
-Before launching CLI/gateway **0.16.27** or desktop **0.3.23** with existing local
-gateway state, stop all writers and follow the [offline state upgrade](https://github.com/citizenhicks/mobius/blob/mobius-v0.16.27/scripts/README-portable-upgrade.md).
+Before launching CLI/gateway **0.16.28** or desktop **0.3.24** with existing local
+gateway state, stop all writers and follow the [offline state upgrade](https://github.com/citizenhicks/mobius/blob/mobius-gateway-v0.16.28/scripts/README-portable-upgrade.md).
 Retain verified backups and pilot a disposable copy; starting the new gateway does
 not migrate old configuration or history.
 

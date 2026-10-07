@@ -18,3 +18,12 @@ The existing workflows own the process:
 Keep source release tags and checksums intact. Do not promote a desktop prerelease
 or pair a stable CLI with an independently newer gateway. Installation and upgrade
 commands remain in the [tap README](../README.md).
+
+On 2026-10-07, the desktop cask was updated to stable 0.3.24 (11), bundling gateway
+0.16.28 / protocol 92. It uses the verified immutable release ZIP and its published
+SHA-256. The canonical cask passed Homebrew style and Ruby syntax checks; the
+downloaded archive passed checksum, Sparkle-signature, Developer ID, and notarization
+checks. Local `brew fetch` rejects this canonical checkout outside the installed
+tap, so the published archive was verified directly and the installed tap was left
+untouched. Existing local state requires the offline config upgrade linked in the
+README before launching the new gateway.
