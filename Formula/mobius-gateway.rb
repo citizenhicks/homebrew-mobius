@@ -6,16 +6,16 @@ class MobiusGateway < Formula
   on_macos do
     depends_on arch: :arm64
     on_arm do
-      url "https://github.com/citizenhicks/mobius/releases/download/mobius-gateway-v0.16.26/mobius-gateway-0.16.26-aarch64-apple-darwin.tar.gz"
-      sha256 "e510363abc63a3ae1927bf00e7db06ffc8a82dab841308347edc529ba65531bc"
+      url "https://github.com/citizenhicks/mobius/releases/download/mobius-gateway-v0.16.27/mobius-gateway-0.16.27-aarch64-apple-darwin.tar.gz"
+      sha256 "12348b8d76f0fd2ad6452eab0f01f516e32a8daf4b1705f77341ba4aad2a15f2"
     end
   end
 
   on_linux do
     depends_on arch: :x86_64
     on_intel do
-      url "https://github.com/citizenhicks/mobius/releases/download/mobius-gateway-v0.16.26/mobius-gateway-0.16.26-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "420dfcc20bb0181a3f7572c971f2d089f62f939235d47109a51bd9e1e2cc4f9a"
+      url "https://github.com/citizenhicks/mobius/releases/download/mobius-gateway-v0.16.27/mobius-gateway-0.16.27-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "450420c5a9df8d66eef575da3927a864d5e1dce7feb1d56b297bb327e55719c8"
     end
   end
 
@@ -28,6 +28,10 @@ class MobiusGateway < Formula
 
   def caveats
     <<~EOS
+      Before launching 0.16.27 with existing state, stop all writers and perform
+      the offline upgrade with verified backups:
+        https://github.com/citizenhicks/mobius/blob/mobius-v0.16.27/scripts/README-portable-upgrade.md
+      Starting the gateway does not migrate old configuration or history.
       Run `mobius-gateway` to open gateway setup.
       Starting a newer gateway replaces an older running gateway automatically.
       Stop a running gateway with `mobius-gateway exit` before uninstalling.

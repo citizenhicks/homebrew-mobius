@@ -29,9 +29,14 @@ and x86-64 Linux.
 
 The Mac app is Developer ID signed and notarized.
 
-Upgrade using `brew update` and `brew upgrade`, then reopen the CLI or run
-`mobius-gateway`. Starting a newer gateway automatically replaces an older running
-version. Stop the gateway with `mobius-gateway exit` before uninstalling.
+Before launching CLI/gateway **0.16.27** or desktop **0.3.23** with existing local
+gateway state, stop all writers and follow the [offline state upgrade](https://github.com/citizenhicks/mobius/blob/mobius-v0.16.27/scripts/README-portable-upgrade.md).
+Retain verified backups and pilot a disposable copy; starting the new gateway does
+not migrate old configuration or history.
+
+After preparing the state, upgrade using `brew update` and `brew upgrade`, then
+reopen the CLI or run `mobius-gateway`. Starting a newer gateway automatically
+replaces an older running version. Stop the gateway with `mobius-gateway exit` before uninstalling.
 Uninstalling packages keeps your gateway data.
 
 Packaging maintenance and checks: [Release procedure](docs/releasing.md).
