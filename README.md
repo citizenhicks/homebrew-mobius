@@ -29,9 +29,9 @@ and x86-64 Linux.
 
 The Mac app is Developer ID signed and notarized.
 
-For gateway state older than **0.16.28**, stop all writers and follow the [offline state upgrade](https://github.com/citizenhicks/mobius/blob/mobius-gateway-v0.16.29/scripts/README-portable-upgrade.md).
+For gateway state older than **0.16.28**, stop all writers and follow the [offline state upgrade](https://github.com/citizenhicks/mobius/blob/mobius-gateway-v0.16.30/scripts/README-portable-upgrade.md).
 Retain verified backups and pilot a disposable copy; startup does not migrate old
-configuration or history. CLI/gateway **0.16.29** uses the same state formats as
+configuration or history. CLI/gateway **0.16.30** uses the same state formats as
 0.16.28, so that patch upgrade needs no new conversion.
 
 After preparing the state, upgrade using `brew update` and `brew upgrade`, then
