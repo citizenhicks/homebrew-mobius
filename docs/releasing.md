@@ -50,3 +50,16 @@ to avoid FileProvider metadata; its update feed contains build 14 and 19 prior
 entries. GitHub Actions remained disabled. No installed tap or active package was
 changed, so install/upgrade checks were not repeated locally. Verification receipts
 are retained in shared `.mobius/releases.nosync/homebrew/0.16.31-desktop-0.3.27/`.
+
+On 2026-10-08, the desktop cask advanced to stable 0.10.0 (15), bundling gateway
+0.16.31 / protocol 92. The immutable ZIP matches the published SHA-256 and source
+receipt; all six public release assets were verified against retained originals.
+The cask passed Ruby syntax, Homebrew style and the native strict cask audit.
+The fixed website downloads and build-15 appcast were verified before publishing
+this cask. CLI and gateway formulas remain at 0.16.31.
+
+GitHub Actions remained disabled. Verification used the canonical cask without
+changing an installed tap or package, so installation and upgrade were not
+repeated locally. Check receipts are retained in shared
+`.mobius/releases.nosync/homebrew/desktop-0.10.0/`, alongside the desktop release
+evidence in `.mobius/releases.nosync/desktop/0.10.0-15/`.
