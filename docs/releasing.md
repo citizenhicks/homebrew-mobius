@@ -27,3 +27,5 @@ checks. Local `brew fetch` rejects this canonical checkout outside the installed
 tap, so the published archive was verified directly and the installed tap was left
 untouched. Existing local state requires the offline config upgrade linked in the
 README before launching the new gateway.
+
+On 2026-10-08, CLI and gateway formulas advance together to 0.16.29, using the immutable Apple Silicon and x86-64 Linux release archives and matching published checksums. Both packages preserve protocol 92 and config 28. State already upgraded to 0.16.28 needs no further conversion.
