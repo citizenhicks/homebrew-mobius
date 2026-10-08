@@ -33,3 +33,5 @@ On 2026-10-08, CLI and gateway formulas advance together to 0.16.29, using the i
 On 2026-10-08, the desktop cask advanced to stable 0.3.25 (12), bundling gateway 0.16.29 / protocol 92. Its immutable ZIP matches the published SHA-256 and passed fresh-download, Sparkle, Developer ID and notarization verification. The cask passed Homebrew style and Ruby syntax checks. The fixed website downloads and build-12 update feed were verified before publishing this cask.
 
 On 2026-10-08, CLI and gateway formulas advance together to 0.16.30. Both Apple Silicon and x86-64 Linux archives were verified after extraction with their published immutable SHA-256 values. Protocol 92 and config 28 remain unchanged; no further conversion is required from 0.16.28 or 0.16.29.
+
+On 2026-10-08, the desktop cask advanced to stable 0.3.26 (13), bundling gateway 0.16.30 / protocol 92. Its immutable ZIP matches the published SHA-256 and passed fresh-download, Sparkle, Developer ID and notarization verification. The cask passed Homebrew style and Ruby syntax checks. The fixed website downloads and build-13 update feed were verified before publishing this cask.
