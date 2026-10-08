@@ -63,3 +63,12 @@ changing an installed tap or package, so installation and upgrade were not
 repeated locally. Check receipts are retained in shared
 `.mobius/releases.nosync/homebrew/desktop-0.10.0/`, alongside the desktop release
 evidence in `.mobius/releases.nosync/desktop/0.10.0-15/`.
+
+On 2026-10-09, the desktop cask advanced to stable 0.10.1 (16), bundling gateway
+0.16.31 / protocol 92 from desktop source `521cd9f8125a52b2451b08e00dc7322324637d33`.
+The immutable and fixed ZIP downloads match the retained signed archive's SHA-256;
+the fixed DMG, website download link, Developer ID/notarization checks, and signed
+build-16 Sparkle feed were verified. The canonical cask passed Ruby syntax, Homebrew style,
+and a native strict cask audit without changing the installed tap or package.
+CLI and gateway formulas remain at 0.16.31. Check receipts are retained in shared
+`.mobius/releases.nosync/homebrew/desktop-0.10.1/`.
