@@ -35,3 +35,18 @@ On 2026-10-08, the desktop cask advanced to stable 0.3.25 (12), bundling gateway
 On 2026-10-08, CLI and gateway formulas advance together to 0.16.30. Both Apple Silicon and x86-64 Linux archives were verified after extraction with their published immutable SHA-256 values. Protocol 92 and config 28 remain unchanged; no further conversion is required from 0.16.28 or 0.16.29.
 
 On 2026-10-08, the desktop cask advanced to stable 0.3.26 (13), bundling gateway 0.16.30 / protocol 92. Its immutable ZIP matches the published SHA-256 and passed fresh-download, Sparkle, Developer ID and notarization verification. The cask passed Homebrew style and Ruby syntax checks. The fixed website downloads and build-13 update feed were verified before publishing this cask.
+
+On 2026-10-08, CLI and gateway formulas advanced together to 0.16.31, and the
+desktop cask advanced to stable 0.3.27 (14), bundling gateway 0.16.31 / protocol 92.
+All five versioned public archives matched their published SHA-256 values and
+release provenance; the released CLI pins gateway exactly. Protocol 92 and config 28 remain
+unchanged, so no further conversion is required from 0.16.28 or newer.
+
+The canonical definitions passed Ruby syntax, Homebrew style, and native strict
+formula and cask audits. Both Mac command-line binaries reported 0.16.31 after
+fresh download and extraction. The unchanged public desktop ZIP passed deep/strict
+Developer ID, Gatekeeper, and stapling checks after extraction outside Documents
+to avoid FileProvider metadata; its update feed contains build 14 and 19 prior
+entries. GitHub Actions remained disabled. No installed tap or active package was
+changed, so install/upgrade checks were not repeated locally. Verification receipts
+are retained in shared `.mobius/releases.nosync/homebrew/0.16.31-desktop-0.3.27/`.
