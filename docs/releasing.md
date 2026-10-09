@@ -86,3 +86,10 @@ The immutable ZIP download matches the signed archive's SHA-256; the fixed ZIP a
 Developer ID/notarization checks, and the signed build-18 Sparkle feed were verified.
 The canonical cask passed Ruby syntax and Homebrew style without changing the installed
 tap or package. CLI and gateway formulas remain at 0.16.31.
+
+On 2026-10-10, the desktop cask advanced to stable 0.10.4 (19), bundling gateway
+0.16.31 / protocol 92 from desktop source `5252a2b81ac3b706ba9083f255685b4e496d648a`.
+The immutable ZIP download matches the signed archive's SHA-256; the fixed ZIP and DMG,
+Developer ID/notarization checks, and the signed build-19 Sparkle feed were verified.
+The canonical cask passed Ruby syntax and Homebrew style without changing the installed
+tap or package. CLI and gateway formulas remain at 0.16.31.
