@@ -93,3 +93,18 @@ The immutable ZIP download matches the signed archive's SHA-256; the fixed ZIP a
 Developer ID/notarization checks, and the signed build-19 Sparkle feed were verified.
 The canonical cask passed Ruby syntax and Homebrew style without changing the installed
 tap or package. CLI and gateway formulas remain at 0.16.31.
+
+On 2026-10-10, CLI and gateway formulas advanced together to 0.16.32 from source
+`88c717b6358778898ad0e8ef72a1372d229afaab`. All four immutable Apple Silicon and
+x86-64 Linux archives matched their published SHA-256 values after fresh download.
+Their binaries, licenses and manuals are present; both Mac packages reported
+0.16.32 after extraction. The Rust release checks separately verified the Linux
+binaries. The CLI pins gateway exactly. Protocol 92 and config 28 remain unchanged,
+so state already upgraded to 0.16.28 needs no further conversion.
+
+Both canonical formulas passed Ruby syntax, Homebrew style and native strict
+formula audits. GitHub Actions remain disabled. No installed tap or package was
+changed, so installation and upgrade checks were not repeated locally. Receipts
+are retained in shared
+`.mobius/releases.nosync/homebrew/0.16.32-desktop-0.10.5/`. The desktop cask remains
+at 0.10.4 pending its separate verified release.
