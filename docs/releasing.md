@@ -122,3 +122,23 @@ GitHub Actions remain disabled; the installed tap and active packages remain
 untouched. CLI and gateway formulas remain at 0.16.32. Check receipts are retained
 in shared `.mobius/releases.nosync/homebrew/0.16.32-desktop-0.10.5/`, alongside the
 desktop publication receipt in `.mobius/releases.nosync/desktop/0.10.5-20/`.
+
+CLI and gateway formulas advance together to 0.16.33 from source
+`ff385da846e588dec5ffee188a5c249313b031c9`, using the exact SHA-256 values of the
+immutable Apple Silicon and x86-64 Linux release archives. The desktop cask stays
+at 0.10.5; it still uses protocol 92 and must not be paired with this gateway.
+
+Protocol 93 requires matching clients and an offline conversion of config 28→29,
+Bot state 8→9 and checkpoint 19→20. Stop all writers, retain verified backups and
+validate a disposable copy before starting the new gateway. SQLite user versions
+are unchanged and do not identify the logical state format. The older portable
+upgrade scripts do not perform this conversion. The formula caveat and README
+link to the immutable
+[0.16.33 release notes](https://github.com/citizenhicks/mobius/releases/tag/mobius-gateway-v0.16.33).
+
+Canonical formula checks and artifact pins are retained in shared
+`.mobius/releases.nosync/release-0.16.33/homebrew/`. All four freshly downloaded
+public archives and their checksum files match those pins. Ruby syntax,
+Homebrew style and strict native formula audits passed against the canonical files.
+GitHub Actions remain disabled and the installed tap and packages remain untouched;
+installation and upgrade checks were not repeated locally.

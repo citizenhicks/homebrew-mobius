@@ -6,16 +6,16 @@ class MobiusGateway < Formula
   on_macos do
     depends_on arch: :arm64
     on_arm do
-      url "https://github.com/citizenhicks/mobius/releases/download/mobius-gateway-v0.16.32/mobius-gateway-0.16.32-aarch64-apple-darwin.tar.gz"
-      sha256 "8e9ea90ab94567d2b7acbb5bc9dcbd1278d0f35262fe19530bff822400fb20f4"
+      url "https://github.com/citizenhicks/mobius/releases/download/mobius-gateway-v0.16.33/mobius-gateway-0.16.33-aarch64-apple-darwin.tar.gz"
+      sha256 "4df23e5f3eaa5e89bebcbb1e9b100da9640e118cf85d8c36221397d61b9efe1a"
     end
   end
 
   on_linux do
     depends_on arch: :x86_64
     on_intel do
-      url "https://github.com/citizenhicks/mobius/releases/download/mobius-gateway-v0.16.32/mobius-gateway-0.16.32-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "feb466114f2128fe5ecc55ae3b7ef84014ec041036d2a2803633d962a646a55c"
+      url "https://github.com/citizenhicks/mobius/releases/download/mobius-gateway-v0.16.33/mobius-gateway-0.16.33-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "93b89fb57c294a36cc48493c05539c76914e43aa644b50d9dd19a00fd9db468a"
     end
   end
 
@@ -28,9 +28,12 @@ class MobiusGateway < Formula
 
   def caveats
     <<~EOS
-      For state older than 0.16.28, stop all writers and perform
-      the offline upgrade with verified backups:
-        https://github.com/citizenhicks/mobius/blob/mobius-v0.16.32/scripts/README-portable-upgrade.md
+      This gateway requires protocol 93 clients, config 29, Bot state 9,
+      and checkpoint 20. Stop all writers, retain verified backups, and
+      convert existing state offline before starting the new gateway:
+        https://github.com/citizenhicks/mobius/releases/tag/mobius-gateway-v0.16.33
+      Older clients cannot connect. The existing portable upgrade scripts
+      do not perform this release's state conversion.
       Starting the gateway does not migrate old configuration or history.
       Run `mobius-gateway` to open gateway setup.
       Starting a newer gateway replaces an older running gateway automatically.
