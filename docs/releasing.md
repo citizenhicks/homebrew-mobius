@@ -108,3 +108,17 @@ changed, so installation and upgrade checks were not repeated locally. Receipts
 are retained in shared
 `.mobius/releases.nosync/homebrew/0.16.32-desktop-0.10.5/`. The desktop cask remains
 at 0.10.4 pending its separate verified release.
+
+On 2026-10-10, the desktop cask advanced to stable 0.10.5 (20), bundling gateway
+0.16.32 / protocol 92 from desktop source `ff0cf32bc4e2c5c795f7112d0dedf953b4dd1c0a`.
+The fresh immutable ZIP matches the signed archive's SHA-256 and contains the
+expected build-20 bundle. All six GitHub release assets, Developer ID/notarization
+checks, fixed ZIP and DMG downloads, website link and signed Sparkle feed were
+verified by the desktop release lane. The public feed preserves all 19 prior
+entries.
+
+The canonical cask passed Ruby syntax, Homebrew style and a native strict audit.
+GitHub Actions remain disabled; the installed tap and active packages remain
+untouched. CLI and gateway formulas remain at 0.16.32. Check receipts are retained
+in shared `.mobius/releases.nosync/homebrew/0.16.32-desktop-0.10.5/`, alongside the
+desktop publication receipt in `.mobius/releases.nosync/desktop/0.10.5-20/`.
