@@ -6,16 +6,16 @@ class MobiusGateway < Formula
   on_macos do
     depends_on arch: :arm64
     on_arm do
-      url "https://github.com/citizenhicks/mobius/releases/download/mobius-gateway-v0.16.33/mobius-gateway-0.16.33-aarch64-apple-darwin.tar.gz"
-      sha256 "4df23e5f3eaa5e89bebcbb1e9b100da9640e118cf85d8c36221397d61b9efe1a"
+      url "https://github.com/citizenhicks/mobius/releases/download/mobius-gateway-v0.16.34/mobius-gateway-0.16.34-aarch64-apple-darwin.tar.gz"
+      sha256 "719060bd8ab406d2d362152d90eaaae2f033b8a1b2742e86149222e336ab1920"
     end
   end
 
   on_linux do
     depends_on arch: :x86_64
     on_intel do
-      url "https://github.com/citizenhicks/mobius/releases/download/mobius-gateway-v0.16.33/mobius-gateway-0.16.33-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "93b89fb57c294a36cc48493c05539c76914e43aa644b50d9dd19a00fd9db468a"
+      url "https://github.com/citizenhicks/mobius/releases/download/mobius-gateway-v0.16.34/mobius-gateway-0.16.34-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "6d6cfa1c1db3ab0ebe0591fc2b8749fdeb2f6b21c75c9036cc1d4e245954eea4"
     end
   end
 
@@ -29,11 +29,12 @@ class MobiusGateway < Formula
   def caveats
     <<~EOS
       This gateway requires protocol 93 clients, config 29, Bot state 9,
-      and checkpoint 20. Stop all writers, retain verified backups, and
-      convert existing state offline before starting the new gateway:
+      and checkpoint 20. State already converted for 0.16.33 needs no
+      further conversion. For older state, stop all writers, retain verified
+      backups, and convert offline before starting the new gateway:
         https://github.com/citizenhicks/mobius/releases/tag/mobius-gateway-v0.16.33
       Older clients cannot connect. The existing portable upgrade scripts
-      do not perform this release's state conversion.
+      do not perform the 0.16.33 state conversion.
       Starting the gateway does not migrate old configuration or history.
       Run `mobius-gateway` to open gateway setup.
       Starting a newer gateway replaces an older running gateway automatically.

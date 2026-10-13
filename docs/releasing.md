@@ -153,3 +153,22 @@ native content audit passed; the token matches the canonical filename.
 GitHub Actions and the installed tap remain untouched. Installation and upgrade
 were not repeated. Receipts are retained in shared
 `.mobius/releases.nosync/homebrew/desktop-0.10.10/` and the desktop release folder.
+
+On 2026-10-13, the CLI and gateway formula update to 0.16.34 was verified from
+source `847a0378c14161d3f5b799f7cffafbd03ee616b6`. All four freshly downloaded
+immutable Apple Silicon and x86-64 Linux archives and their checksum files match
+the retained release artifacts. Every archived file matches its recorded hash,
+size and mode; the extracted Mac binaries report 0.16.34. The published CLI pins
+gateway exactly to 0.16.34. Linux execution is covered by the matching release
+ABI and extracted-archive smoke receipts.
+
+Protocol 93, config 29, Bot state 9 and checkpoint 20 are unchanged. State already
+converted for 0.16.33 needs no additional conversion; older state still requires
+the conversion linked in the immutable 0.16.33 release notes. The desktop cask
+remains 0.10.12, bundling gateway 0.16.33 with protocol 93.
+
+The canonical formula files passed Ruby syntax, Homebrew style and strict native
+formula audits. Checks and artifact pins are retained in shared
+`.mobius/releases.nosync/release-0.16.34/homebrew/`. GitHub Actions remain disabled.
+No installed tap or package was changed, and no running gateway was restarted;
+local installation and upgrade checks were not repeated.

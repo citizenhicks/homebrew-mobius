@@ -29,16 +29,17 @@ and x86-64 Linux.
 
 The Mac app is Developer ID signed and notarized.
 
-CLI/gateway **0.16.33** requires protocol **93** clients and an offline state
-conversion: gateway config **28→29**, Bot state **8→9**, and checkpoint **19→20**.
+CLI/gateway **0.16.34** requires protocol **93** clients. State already converted
+for **0.16.33** needs no further conversion. Older state requires the offline
+conversion to gateway config **29**, Bot state **9**, and checkpoint **20**.
 Stop all writers, retain verified backups, and pilot a disposable copy before
-upgrading. Startup does not migrate configuration or history, and the existing
-portable upgrade scripts do not perform this release's conversion. See the
+converting. Startup does not migrate configuration or history, and the existing
+portable upgrade scripts do not perform the 0.16.33 conversion. See the
 [0.16.33 release notes](https://github.com/citizenhicks/mobius/releases/tag/mobius-gateway-v0.16.33).
 
-The current desktop cask **0.10.5** uses protocol **92** and cannot connect to this
-gateway. Keep gateways used by older clients on their compatible release until
-the clients have been upgraded. The desktop cask is unchanged by this release.
+The current desktop cask **0.10.12** uses protocol **93** and bundles gateway
+**0.16.33**. It can connect to 0.16.34 gateways. Keep gateways used by older
+protocol clients on their compatible release until those clients are upgraded.
 
 After preparing the state, upgrade using `brew update` and `brew upgrade`, then
 reopen the CLI or run `mobius-gateway`. Starting a newer gateway automatically
