@@ -37,9 +37,9 @@ converting. Startup does not migrate configuration or history, and the existing
 portable upgrade scripts do not perform the 0.16.33 conversion. See the
 [0.16.33 release notes](https://github.com/citizenhicks/mobius/releases/tag/mobius-gateway-v0.16.33).
 
-The current desktop cask **0.10.12** uses protocol **93** and bundles gateway
-**0.16.33**. It can connect to 0.16.34 gateways. Keep gateways used by older
-protocol clients on their compatible release until those clients are upgraded.
+The current desktop cask **0.10.13** uses protocol **93** and bundles gateway
+**0.16.34**. Keep gateways used by older protocol clients on their compatible
+release until those clients are upgraded.
 
 After preparing the state, upgrade using `brew update` and `brew upgrade`, then
 reopen the CLI or run `mobius-gateway`. Starting a newer gateway automatically

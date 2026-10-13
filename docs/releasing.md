@@ -172,3 +172,22 @@ formula audits. Checks and artifact pins are retained in shared
 `.mobius/releases.nosync/release-0.16.34/homebrew/`. GitHub Actions remain disabled.
 No installed tap or package was changed, and no running gateway was restarted;
 local installation and upgrade checks were not repeated.
+
+On 2026-10-13, the desktop cask update to 0.10.13 (29), bundling gateway
+0.16.34 / protocol 93, was verified from desktop source
+`bdc8106712abb9554b962badbe0627ced9dc229a` and core
+`847a0378c14161d3f5b799f7cffafbd03ee616b6`. The fresh immutable public ZIP matches
+the retained signed, notarized archive's SHA-256
+`3316c3ea8982403b739595432fb6afbb06937f93172f504d835e7a73c1c556d7`;
+the public checksum and source receipt match the retained release evidence.
+
+The canonical cask passed Ruby syntax, Homebrew style and a strict native cask
+audit. Checks are retained in shared
+`.mobius/releases.nosync/homebrew/desktop-0.10.13/`; signing and notarization
+evidence is in `.mobius/releases.nosync/desktop/0.10.13-29/`. All six public assets
+match retained originals. Stable promotion uploaded the fixed ZIP and DMG before
+the signed build-29 Sparkle feed, preserving 19 older entries. Ordinary download
+streams match the verified packages; the website's Mac link was confirmed in a
+normal browser. The immutable release was a prerelease when cask checks completed
+and is now stable and Latest.
+No installed tap or package was changed and no running gateway was restarted.
