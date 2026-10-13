@@ -142,3 +142,14 @@ public archives and their checksum files match those pins. Ruby syntax,
 Homebrew style and strict native formula audits passed against the canonical files.
 GitHub Actions remain disabled and the installed tap and packages remain untouched;
 installation and upgrade checks were not repeated locally.
+
+On 2026-10-13, the desktop cask advanced to stable 0.10.10 (26), bundling gateway
+0.16.33 / protocol 93 from desktop source `e45819ab8a2803a0f667a41b84096d4307731847`.
+The freshly downloaded immutable ZIP matches SHA-256
+`49f204f05098f43171a5197b02404e49e63ad013f388bbd5d67d103d8db7210e`;
+Developer ID, notarization, Sparkle signature, fixed website downloads and the
+build-26 feed were verified. Canonical Ruby syntax, Homebrew style and the strict
+native content audit passed; the token matches the canonical filename.
+GitHub Actions and the installed tap remain untouched. Installation and upgrade
+were not repeated. Receipts are retained in shared
+`.mobius/releases.nosync/homebrew/desktop-0.10.10/` and the desktop release folder.
