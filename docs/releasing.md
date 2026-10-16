@@ -191,3 +191,9 @@ streams match the verified packages; the website's Mac link was confirmed in a
 normal browser. The immutable release was a prerelease when cask checks completed
 and is now stable and Latest.
 No installed tap or package was changed and no running gateway was restarted.
+
+On 2026-10-17, CLI and gateway 0.16.36 were verified from core source `290002ab5c89baea7274e4ec0a2533a2253743fd`. All four fresh public archives and their checksums matched retained originals; extracted files matched recorded hashes, sizes and modes. Mac binaries reported the expected version, and Linux ABI and extracted-archive smoke checks passed. The CLI pins gateway exactly. Protocol 95 requires matching clients; config 29, Bot state 9 and checkpoint 20 are unchanged.
+
+The prepared desktop cask uses the verified immutable 0.10.15 (31) ZIP, bundling gateway 0.16.36. Its fresh public archive passed Sparkle signature, Developer ID, Gatekeeper and stapling verification. Canonical Homebrew style and strict native formula/cask audits passed. Evidence is retained in shared `.mobius/releases.nosync/release-0.16.36/homebrew/` and `.mobius/releases.nosync/desktop/0.10.15-31/`. GitHub Actions remained disabled. Installed taps and packages were left untouched, so local installation and upgrade checks were not repeated.
+
+The 0.10.15 release is stable. After the three-account Cloud rollout completed, the fixed website ZIP and DMG were published before the Sparkle feed; fresh public streams matched the immutable hashes and the signed build-31 feed preserved 19 older entries. The website Mac link targets the verified fixed DMG. CLI, gateway and desktop packaging advance together.
