@@ -197,3 +197,13 @@ On 2026-10-17, CLI and gateway 0.16.36 were verified from core source `290002ab5
 The prepared desktop cask uses the verified immutable 0.10.15 (31) ZIP, bundling gateway 0.16.36. Its fresh public archive passed Sparkle signature, Developer ID, Gatekeeper and stapling verification. Canonical Homebrew style and strict native formula/cask audits passed. Evidence is retained in shared `.mobius/releases.nosync/release-0.16.36/homebrew/` and `.mobius/releases.nosync/desktop/0.10.15-31/`. GitHub Actions remained disabled. Installed taps and packages were left untouched, so local installation and upgrade checks were not repeated.
 
 The 0.10.15 release is stable. After the three-account Cloud rollout completed, the fixed website ZIP and DMG were published before the Sparkle feed; fresh public streams matched the immutable hashes and the signed build-31 feed preserved 19 older entries. The website Mac link targets the verified fixed DMG. CLI, gateway and desktop packaging advance together.
+
+On 2026-10-17, CLI and gateway formulas advanced to 0.16.37 from core
+`3ccaf5da1871cd5b64e793f8ebdd1b677d0a0aab`. All four official archives were
+downloaded again and checked against their named checksums and retained file
+manifests. Canonical Ruby syntax, Homebrew style and strict native audits passed.
+Protocol 95 and persisted-state versions are unchanged. The optional compaction
+model inherits the conversation model unless selected explicitly. The desktop
+cask remains unchanged. Evidence is retained in shared
+`.mobius/releases.nosync/release-0.16.37/homebrew/`. Actions stayed disabled;
+installed taps, installed packages and running local gateways were not changed.
