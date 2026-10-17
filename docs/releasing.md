@@ -224,3 +224,21 @@ Canonical Ruby syntax, Homebrew style and strict native audits passed. Evidence
 is retained in shared `.mobius/releases.nosync/release-0.16.38/homebrew/`.
 GitHub Actions remain disabled. Installed taps, packages and running gateways
 were left untouched; local installation and upgrade checks were not repeated.
+
+
+On 2026-10-18, the desktop cask advanced to stable 0.10.16 (32), bundling gateway
+0.16.38 / protocol 95 from desktop source
+`b1eef96cc69e69ab5bbd1ef0600a452a778c64f5` and core
+`182d36c648790e2d974530b99dfb25d40d4fbd01`. The fresh anonymous public ZIP matches
+SHA-256 `8880aeabc5cf36d48487aca18ee67cdc262bf84bcbbde7a973010595c555a2ae`.
+All six immutable public assets match retained originals. The extracted app's
+version, build and embedded gateway, Developer ID signature, Gatekeeper,
+notarization staple and Sparkle signature passed verification before the cask
+was published.
+
+The canonical cask passed Ruby syntax, Homebrew style and a strict native audit.
+Evidence is retained in shared `.mobius/releases.nosync/homebrew/desktop-0.10.16/`
+and `.mobius/releases.nosync/desktop/0.10.16-32/`. CLI and gateway formulas remain
+0.16.38. GitHub Actions remain disabled. Installed taps and packages were not
+changed and running gateways were not restarted; local installation and upgrade
+checks were not repeated.
