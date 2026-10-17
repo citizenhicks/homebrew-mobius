@@ -207,3 +207,20 @@ model inherits the conversation model unless selected explicitly. The desktop
 cask remains unchanged. Evidence is retained in shared
 `.mobius/releases.nosync/release-0.16.37/homebrew/`. Actions stayed disabled;
 installed taps, installed packages and running local gateways were not changed.
+
+On 2026-10-18, CLI and gateway formulas advanced together to 0.16.38 from core
+`182d36c648790e2d974530b99dfb25d40d4fbd01`. All four fresh public Apple Silicon
+and x86-64 Linux archives matched their published checksums and retained source
+and file manifests, including every file's hash, size and mode. The extracted
+Mac binaries reported 0.16.38; the matching Linux ABI and extracted-archive smoke
+checks passed. The released CLI pins gateway exactly to 0.16.38.
+
+Protocol 95, config 29, Bot state 9 and checkpoint 20 are unchanged. The release
+reads history without starting stopped chats, combines text and image file
+inspection, and shortens middleware guidance. The desktop cask remains 0.10.15,
+bundling gateway 0.16.36, pending its separate release.
+
+Canonical Ruby syntax, Homebrew style and strict native audits passed. Evidence
+is retained in shared `.mobius/releases.nosync/release-0.16.38/homebrew/`.
+GitHub Actions remain disabled. Installed taps, packages and running gateways
+were left untouched; local installation and upgrade checks were not repeated.
