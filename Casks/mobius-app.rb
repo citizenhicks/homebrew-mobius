@@ -1,6 +1,6 @@
 cask "mobius-app" do
-  version "0.10.17"
-  sha256 "adc68c741516cce57790cdbfdad0dab3476f354ee2dd9b2ee773addac4746c14"
+  version "0.10.19"
+  sha256 "e5ece11958979da06232f073a6bb8b1f4d9b47c40e00c168cf6b0db3dbaedec9"
 
   url "https://github.com/citizenhicks/mobius/releases/download/mobius-desktop-v#{version}/mobius-desktop-#{version}.zip"
   name "möbius"

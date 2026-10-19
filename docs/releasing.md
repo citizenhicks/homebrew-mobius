@@ -261,3 +261,24 @@ audits. The unchanged cask also passed its native strict audit. Evidence is
 retained in shared `.mobius/releases.nosync/release-0.16.39/homebrew/`.
 GitHub Actions remain disabled. Installed taps, packages and running gateways
 were left untouched; local installation and upgrade checks were not repeated.
+
+On 2026-10-20, the desktop cask advanced to stable 0.10.19 (35), bundling gateway
+0.16.39 / protocol 95 from desktop source
+`700e216d9f58e525e73148dd1ebe71962443a9c3` and core
+`f83d6c5c9c09913ecda3ee459ece062968bb7fe3`. The freshly downloaded immutable
+public ZIP matches SHA-256
+`e5ece11958979da06232f073a6bb8b1f4d9b47c40e00c168cf6b0db3dbaedec9`.
+All six public release assets match retained originals. The extracted app's
+version, build, embedded gateway, Developer ID signature, Gatekeeper,
+notarization staple and Sparkle signature passed verification.
+
+The fixed public ZIP and DMG downloads and signed build-35 Sparkle feed match
+the immutable artifacts. The feed preserves 19 prior entries, and the rendered
+website's Mac download link points to the verified fixed DMG.
+
+The canonical cask passed Ruby syntax, Homebrew style and a strict native audit.
+Evidence is retained in shared `.mobius/releases.nosync/homebrew/desktop-0.10.19/`
+and `.mobius/releases.nosync/desktop/0.10.19-35/`. CLI and gateway formulas remain
+0.16.39. GitHub Actions remain disabled. Installed taps, packages and running
+gateways were left untouched; local installation and upgrade checks were not
+repeated.
