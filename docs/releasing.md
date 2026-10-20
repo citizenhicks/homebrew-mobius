@@ -298,3 +298,19 @@ shared `.mobius/releases.nosync/release-0.16.40/homebrew/`.
 The desktop cask remains byte-unchanged at 0.10.19, bundling gateway 0.16.39.
 GitHub Actions remain disabled. Installed taps, packages and running gateways
 were left untouched; local installation and upgrade checks were not repeated.
+
+On 2026-10-20, the desktop cask advanced to stable 0.10.20 (36), bundling gateway
+0.16.40 / protocol 95 from desktop source
+`8cee7f04cd02e08ba7a57015fd857ef3dbc4fee8` and core
+`ef4275d287f74552543fb76288b8d7b6cd3cf8fb`. Its immutable ZIP matches SHA-256
+`f9dd37cdc7ccc805dbafbb53e51727847feede5a529460126ff054e6224423e8`.
+All six public assets, Developer ID signatures, Gatekeeper, notarization staples,
+Sparkle signature and source provenance passed verification. The fixed ZIP and
+DMG downloads match the signed packages, and the build-36 feed preserves 19 older
+entries. The website's Mac link targets the verified fixed DMG.
+
+Canonical Ruby syntax, Homebrew style and strict native audits passed. Evidence
+is retained in shared `.mobius/releases.nosync/homebrew/desktop-0.10.20/` and
+`.mobius/releases.nosync/desktop/0.10.20-36/`. CLI and gateway formulas remain
+0.16.40. GitHub Actions stayed disabled. Installed taps, packages and running
+gateways were not changed; installation and upgrade were not repeated locally.
