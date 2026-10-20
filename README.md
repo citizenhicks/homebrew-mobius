@@ -29,7 +29,7 @@ and x86-64 Linux.
 
 The Mac app is Developer ID signed and notarized.
 
-CLI/gateway **0.16.39** requires protocol **95** clients. State already converted
+CLI/gateway **0.16.40** requires protocol **95** clients. State already converted
 for **0.16.33** needs no further conversion. Older state requires the offline
 conversion to gateway config **29**, Bot state **9**, and checkpoint **20**.
 Stop all writers, retain verified backups, and pilot a disposable copy before

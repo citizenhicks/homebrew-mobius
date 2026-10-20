@@ -282,3 +282,19 @@ and `.mobius/releases.nosync/desktop/0.10.19-35/`. CLI and gateway formulas rema
 0.16.39. GitHub Actions remain disabled. Installed taps, packages and running
 gateways were left untouched; local installation and upgrade checks were not
 repeated.
+
+On 2026-10-20, CLI and gateway formulas advanced together to 0.16.40 from core
+`ef4275d287f74552543fb76288b8d7b6cd3cf8fb`. All four freshly downloaded public
+Apple Silicon and x86-64 Linux archives matched their named checksums and
+release manifests, including every archived file's hash, size and mode.
+Extracted Mac binaries reported 0.16.40; the matching isolated Linux archive
+smoke checks passed. The published CLI pins gateway exactly to 0.16.40.
+
+Protocol 95, config 29, Bot state 9 and checkpoint 20 are unchanged. State already
+converted for 0.16.33 needs no further conversion. Both canonical formulas passed
+Ruby syntax, Homebrew style and strict native audits. Evidence is retained in
+shared `.mobius/releases.nosync/release-0.16.40/homebrew/`.
+
+The desktop cask remains byte-unchanged at 0.10.19, bundling gateway 0.16.39.
+GitHub Actions remain disabled. Installed taps, packages and running gateways
+were left untouched; local installation and upgrade checks were not repeated.
