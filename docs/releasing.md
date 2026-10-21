@@ -349,3 +349,21 @@ Homebrew style and strict native formula audits passed. Evidence is retained in
 shared `.mobius/releases.nosync/release-0.16.41/`. The desktop cask remains at
 0.10.21 pending its separate verified promotion. Actions stayed disabled; installed
 taps, packages and running local gateways were not changed.
+
+On 2026-10-22, the desktop cask advanced to stable 0.10.22 (38), bundling gateway
+0.16.41 / protocol 95 from desktop source
+`8c9040e57a5a8519033c5be95c9f4b357bde1772` and core
+`6e92c66f766f88d448a97e3b4b2adb4ce3d9d2f9`. All six immutable public assets match
+the retained packages and GitHub digests. The ZIP SHA-256 is
+`f374fd6421c4f1aab94bf5d7b877cf32c6d47611513858c3b0cf9355e60329de`.
+Source tags, Developer ID signatures, notarization, Gatekeeper, native symbols
+and Sparkle verification passed. The fixed ZIP and DMG passed anonymous download
+checks before activating the build-38 feed, which preserves 19 older entries.
+The live website's Mac download anchor targets the verified fixed DMG.
+
+Canonical Ruby syntax, Homebrew style and strict native audits passed. Evidence
+is retained in shared `.mobius/releases.nosync/homebrew/desktop-0.10.22/` and
+`.mobius/releases.nosync/desktop/0.10.22-38/`. CLI and gateway formulas remain
+0.16.41. Actions stayed disabled. Installed taps, packages and running local
+gateways were not changed; fresh GUI, hardware and installed-upgrade acceptance
+were not run.
