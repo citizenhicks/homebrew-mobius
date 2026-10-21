@@ -337,3 +337,15 @@ is retained in shared `.mobius/releases.nosync/homebrew/desktop-0.10.21/` and
 unchanged at 0.16.40. GitHub Actions stayed disabled. Installed taps, packages
 and running gateways were not changed; installation and upgrade were not
 repeated locally.
+
+On 2026-10-22, CLI and gateway formulas advanced together to 0.16.41 from core
+`6e92c66f766f88d448a97e3b4b2adb4ce3d9d2f9`. All four fresh public archives and
+their checksum files match the retained package manifests. Extracted Mac binaries
+report 0.16.41; the matching Linux ABI, isolated archive smoke and X11 checks
+passed. All three crates are published with the exact release dependencies.
+
+Protocol 95 and persisted-state versions are unchanged. Canonical Ruby syntax,
+Homebrew style and strict native formula audits passed. Evidence is retained in
+shared `.mobius/releases.nosync/release-0.16.41/`. The desktop cask remains at
+0.10.21 pending its separate verified promotion. Actions stayed disabled; installed
+taps, packages and running local gateways were not changed.
