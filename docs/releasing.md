@@ -314,3 +314,26 @@ is retained in shared `.mobius/releases.nosync/homebrew/desktop-0.10.20/` and
 `.mobius/releases.nosync/desktop/0.10.20-36/`. CLI and gateway formulas remain
 0.16.40. GitHub Actions stayed disabled. Installed taps, packages and running
 gateways were not changed; installation and upgrade were not repeated locally.
+
+On 2026-10-21, the desktop cask advanced to stable 0.10.21 (37), bundling gateway
+0.16.40 / protocol 95 from desktop source
+`274fc4bb36eaa551789e96dbb4c9b1c2dc86a7ee` and core
+`615b6e5f7ad7fabd3c05306bc096f17e616ee8f4`. Its immutable ZIP matches SHA-256
+`43393ec7defef67056eda0a8a1a0fb75578ba250c9473c55176b729d08585647`.
+All six public assets matched retained originals and GitHub digests after fresh
+anonymous download. The extracted ZIP and mounted DMG passed Developer ID,
+hardened-runtime, Gatekeeper and staple checks; their main executables match,
+and shipped native UUIDs match the retained symbols. Sparkle and source tags
+were verified before promotion.
+
+The fixed ZIP and DMG were staged and verified before replacing their previous
+asset names; the appcast followed last. Ordinary fixed downloads match the
+immutable artifacts, and the build-37 feed preserves 19 older entries. The live
+website's Mac download anchor targets the verified fixed DMG.
+
+Canonical Ruby syntax, Homebrew style and strict native audits passed. Evidence
+is retained in shared `.mobius/releases.nosync/homebrew/desktop-0.10.21/` and
+`.mobius/releases.nosync/desktop/0.10.21-37/`. CLI and gateway formulas remain
+unchanged at 0.16.40. GitHub Actions stayed disabled. Installed taps, packages
+and running gateways were not changed; installation and upgrade were not
+repeated locally.
