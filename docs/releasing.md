@@ -367,3 +367,5 @@ is retained in shared `.mobius/releases.nosync/homebrew/desktop-0.10.22/` and
 0.16.41. Actions stayed disabled. Installed taps, packages and running local
 gateways were not changed; fresh GUI, hardware and installed-upgrade acceptance
 were not run.
+
+On 2026-10-23, CLI and gateway formulas advanced together to 0.16.42 from source `577694552ba5e62b0b372241b737b7e69c0898e9`. All four immutable archives and published checksums were freshly downloaded and matched every packaged file, mode and source receipt. Mac executables reported 0.16.42; extracted Linux archives passed 14 isolated execution checks against glibc 2.35, with binaries targeting glibc 2.34. Protocol 95 and persisted formats are unchanged. Ruby syntax, Homebrew style and strict native formula audits passed. Actions remained disabled; no installed tap, package or running local gateway was changed. Verification receipts are retained under shared `.mobius/releases.nosync/release-0.16.42/homebrew/`. The desktop cask remains at 0.10.22 pending coordinated promotion.
