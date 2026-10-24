@@ -385,3 +385,18 @@ formula audits. Actions remain disabled. The installed tap, packages and running
 local gateway were not changed; installation and upgrade checks were not repeated.
 Receipts are retained in shared `.mobius/releases.nosync/release-0.16.43/homebrew/`.
 The desktop cask remains 0.10.24 pending its separate verified promotion.
+
+On 2026-10-24, the desktop cask advanced to stable 0.10.25 (41), bundling gateway
+0.16.43 / protocol 95 from desktop source
+`5e4e00a6cd9a506903a038898aea367f0f870469`. All six immutable public assets matched
+retained originals after fresh anonymous download. ZIP and DMG signatures,
+Gatekeeper, staples, the provisioning profile and signer, matching available
+native symbols and the embedded gateway version passed. The Sparkle signature,
+fixed ZIP and DMG downloads, build-41 feed and existing website download anchor
+were verified before publishing this cask. The feed retains 19 prior entries.
+
+The cask passed Ruby syntax, Homebrew style and its native strict audit. Actions
+remain disabled. No installed package, tap or running local gateway was changed;
+installation/upgrade and fresh physical-device or packaged UI acceptance checks
+were not repeated. Receipts are retained in shared
+`.mobius/releases.nosync/desktop/0.10.25-41/`.
