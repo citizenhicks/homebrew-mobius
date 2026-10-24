@@ -371,3 +371,17 @@ were not run.
 On 2026-10-23, CLI and gateway formulas advanced together to 0.16.42 from source `577694552ba5e62b0b372241b737b7e69c0898e9`. All four immutable archives and published checksums were freshly downloaded and matched every packaged file, mode and source receipt. Mac executables reported 0.16.42; extracted Linux archives passed 14 isolated execution checks against glibc 2.35, with binaries targeting glibc 2.34. Protocol 95 and persisted formats are unchanged. Ruby syntax, Homebrew style and strict native formula audits passed. Actions remained disabled; no installed tap, package or running local gateway was changed. Verification receipts are retained under shared `.mobius/releases.nosync/release-0.16.42/homebrew/`. The desktop cask remains at 0.10.22 pending coordinated promotion.
 
 On 2026-10-23, the desktop cask advanced to stable 0.10.23 (39), bundling gateway 0.16.42 / protocol 95 from desktop source `136210f7edc1b52f38e962a4c327f45a4e34e052`. All six public release assets matched fresh anonymous downloads and retained provenance. ZIP/DMG Developer ID signatures, provisioning profile, notarization, Sparkle signature and native dSYM UUIDs passed; the fixed website ZIP, DMG and build-39 feed were verified after the three Cloud accounts completed their gateway upgrade. The website still links to that verified fixed DMG. Ruby syntax, Homebrew style and strict native audits passed. Actions stayed disabled; no installed tap, package or running local gateway was changed. Signed packages, symbols and verification receipts are retained under shared `.mobius/releases.nosync/desktop/0.10.23-39/`.
+
+On 2026-10-24, CLI and gateway formulas advanced together to 0.16.43 from
+`e5662ca20096407d469846074072b9195f5a5a42`. All four immutable Apple Silicon and
+x86-64 Linux public archives and checksums were downloaded and verified against
+retained build evidence; every packaged file and executable mode matched. The Mac
+binaries reported the expected versions, and the matching Linux archives had
+already passed execution checks. Protocol 95, config 29, Bot catalog 9 and
+checkpoint 20 are unchanged. All three crates and GitHub releases are published.
+
+Both canonical formulas passed Ruby syntax, Homebrew style and native strict
+formula audits. Actions remain disabled. The installed tap, packages and running
+local gateway were not changed; installation and upgrade checks were not repeated.
+Receipts are retained in shared `.mobius/releases.nosync/release-0.16.43/homebrew/`.
+The desktop cask remains 0.10.24 pending its separate verified promotion.
