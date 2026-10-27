@@ -29,14 +29,15 @@ and x86-64 Linux.
 
 The Mac app is Developer ID signed and notarized.
 
-CLI/gateway **0.16.44** requires protocol **97** clients. Existing state requires
-manual offline conversion to Bot state **10**, checkpoint **21**, and checkpoint
-SQLite schema **14**. Gateway config **29** and Bot SQLite schema **6** stay
-unchanged; the scratchpad capability becomes memory. Stop all writers, retain
-verified backups, and validate a disposable copy before converting. Startup does
-not migrate configuration or history. Do not use the older portable upgrade
-scripts for this conversion. See the
+CLI/gateway **0.16.45** requires protocol **97** clients. State from before
+**0.16.44** requires manual offline conversion to Bot state **10**, checkpoint
+**21**, and checkpoint SQLite schema **14**. Gateway config **29** and Bot SQLite
+schema **6** stay unchanged; the scratchpad capability becomes memory. Stop all
+writers, retain verified backups, and validate a disposable copy before converting.
+Startup does not migrate configuration or history. Do not use the older portable
+upgrade scripts for this conversion. See the
 [0.16.44 release notes](https://github.com/citizenhicks/mobius/releases/tag/mobius-gateway-v0.16.44).
+Upgrading from 0.16.44 to 0.16.45 needs no additional state conversion.
 
 The current desktop cask **0.10.26** uses protocol **97** and bundles gateway
 **0.16.44**. Keep gateways used by older protocol clients on their compatible

@@ -428,3 +428,18 @@ Mac binary versions. Matching Linux ABI and isolated execution evidence is retai
 with the release. Canonical Ruby syntax, Homebrew style, both native strict formula
 audits and the native strict cask audit passed. Installed-package upgrade tests
 were not run; the installed tap and packages remain untouched.
+
+On 2026-10-27, CLI and gateway formulas advanced together to 0.16.45 from
+`edf5d59fcf15f92b4ebd685f126e34880238668d`, following the released CLI's exact
+`=0.16.45` gateway dependency. All four public archives and named checksums
+matched fresh GitHub asset digests and retained build manifests. Every packaged
+file's hash, size and mode passed; extracted Mac versions matched and Linux
+bytes matched the successful ABI and isolated execution checks.
+
+Protocol 97 and persisted formats are unchanged from 0.16.44; no further state
+conversion is needed. The desktop cask remains 0.10.26 (42), bundling gateway
+0.16.44. Ruby syntax, Homebrew style and both native strict formula audits passed.
+GitHub Actions remained disabled. Installed taps, packages and the running local
+gateway were not changed; installed-upgrade tests were not repeated. Receipts
+are retained in shared `.mobius/releases.nosync/release-0.16.45/homebrew/` and
+`public-readback-provenance.json` in its parent release directory.
