@@ -443,3 +443,18 @@ GitHub Actions remained disabled. Installed taps, packages and the running local
 gateway were not changed; installed-upgrade tests were not repeated. Receipts
 are retained in shared `.mobius/releases.nosync/release-0.16.45/homebrew/` and
 `public-readback-provenance.json` in its parent release directory.
+
+On 2026-10-28, CLI and gateway formulas advanced together to 0.16.46 from
+`dc4033e0fed122b183392d4db426038e4686c0db`, following the released CLI's exact
+`=0.16.46` gateway dependency. This patch restores normal activity and hook
+delivery when a user message promotes idle compaction, while keeping history
+pagination on the same turn. Protocol 97 and persisted formats are unchanged;
+state already converted for 0.16.44 needs no further conversion.
+
+The four archive pins match the retained native/Linux release manifests and
+isolated execution checks. Ruby syntax, Homebrew style and both native strict
+formula audits passed. GitHub Actions remained disabled.
+Package and public-download verification receipts
+are retained in shared `.mobius/releases.nosync/release-0.16.46/homebrew/` and
+its parent release directory. Installed-package upgrade tests were not repeated;
+the installed tap, packages and local gateway were not changed.
