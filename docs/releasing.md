@@ -458,3 +458,10 @@ Package and public-download verification receipts
 are retained in shared `.mobius/releases.nosync/release-0.16.46/homebrew/` and
 its parent release directory. Installed-package upgrade tests were not repeated;
 the installed tap, packages and local gateway were not changed.
+
+On 2026-10-28, the desktop cask advanced to stable 0.10.27 (43), bundling gateway
+0.16.46 and protocol 97, from desktop source `030bdffd2bb247835b7463e118a2890f43283478`
+and core `dc4033e0fed122b183392d4db426038e4686c0db`. The signed, notarized ZIP has SHA-256
+`e36bffe5b99c8c89d096ea3427b9b5cc4739785371f8b75da20906e7961c866d`.
+The fixed public ZIP and DMG matched the signed artifacts, and the build-43 appcast
+was verified. Ruby syntax, Homebrew style and the native strict cask audit passed.
