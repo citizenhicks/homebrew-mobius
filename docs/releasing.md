@@ -400,3 +400,31 @@ remain disabled. No installed package, tap or running local gateway was changed;
 installation/upgrade and fresh physical-device or packaged UI acceptance checks
 were not repeated. Receipts are retained in shared
 `.mobius/releases.nosync/desktop/0.10.25-41/`.
+
+On 2026-10-27, CLI and gateway formulas advanced together to 0.16.44 and the
+desktop cask advanced to stable 0.10.26 (42). The formula pins use all four immutable Apple Silicon
+and x86-64 Linux archives; the gateway version is derived from the released CLI's
+exact `=0.16.44` dependency. The cask uses the immutable signed, notarized desktop
+ZIP with SHA-256
+`c7a00b9ac2c92814b500c48676afe23fe809e9f8ec5fa500fb462dd7bbaf265c`.
+Desktop source, fresh public downloads, Sparkle signature and notarization evidence
+are retained in shared `.mobius/releases.nosync/desktop/0.10.26-42/`.
+
+Protocol 97 requires matching clients and manual offline conversion of Bot
+catalog 9→10, checkpoint 20→21 and checkpoint SQLite 13→14, including the
+scratchpad-to-memory record change. Config 29 and Bot SQLite schema 6 remain
+unchanged. No runtime migration or fallback is provided. Retain verified backups
+and validate converted copies before starting a new gateway.
+
+Canonical package checks and fresh formula archive verification are retained in
+shared `.mobius/releases.nosync/release-0.16.44/homebrew/`. The three-account Cloud
+conversion and image cutover completed before stable desktop promotion and this
+coordinated tap update. Verified rollback backups, account suspension intent and
+retention deadlines were preserved. GitHub Actions remained disabled.
+
+All four formula archives and named checksums passed fresh anonymous download
+verification, including every packaged file's hash, size and mode and the extracted
+Mac binary versions. Matching Linux ABI and isolated execution evidence is retained
+with the release. Canonical Ruby syntax, Homebrew style, both native strict formula
+audits and the native strict cask audit passed. Installed-package upgrade tests
+were not run; the installed tap and packages remain untouched.
