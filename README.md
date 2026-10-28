@@ -39,7 +39,7 @@ upgrade scripts for this conversion. See the
 [0.16.44 release notes](https://github.com/citizenhicks/mobius/releases/tag/mobius-gateway-v0.16.44).
 Upgrading from 0.16.44 or 0.16.45 to 0.16.46 needs no additional state conversion.
 
-The current desktop cask **0.10.27** uses protocol **97** and bundles gateway
+The current desktop cask **0.10.28** uses protocol **97** and bundles gateway
 **0.16.46**. Keep gateways used by older protocol clients on their compatible
 release until those clients are upgraded.
 

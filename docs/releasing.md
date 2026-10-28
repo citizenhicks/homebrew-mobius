@@ -465,3 +465,16 @@ and core `dc4033e0fed122b183392d4db426038e4686c0db`. The signed, notarized ZIP h
 `e36bffe5b99c8c89d096ea3427b9b5cc4739785371f8b75da20906e7961c866d`.
 The fixed public ZIP and DMG matched the signed artifacts, and the build-43 appcast
 was verified. Ruby syntax, Homebrew style and the native strict cask audit passed.
+
+The desktop cask advanced to stable 0.10.28 (44), bundling gateway 0.16.46 and
+protocol 97, from desktop source `d87b03d788811c2ff71e5ebe2d24b315ae6a0d4d`
+and core `dc4033e0fed122b183392d4db426038e4686c0db`. Its immutable ZIP has SHA-256
+`fc24936e47a1a4797dd7709e0d255a9cb16cdd1dd728efc6b0c578c35bf8102c`.
+All six public assets match the independently verified signed packages. The fixed
+ZIP and DMG were verified before the signed build-44 feed was activated, retaining
+19 older feed items. The existing website download anchor targets that DMG.
+
+Ruby syntax, Homebrew style and the native strict cask audit passed. CLI/gateway
+formulas remain 0.16.46. Verification and publication evidence is retained in
+shared `.mobius/releases.nosync/desktop/0.10.28-44/`. Installed-package upgrade
+tests were not run; GitHub Actions stayed disabled.
