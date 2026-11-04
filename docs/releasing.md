@@ -478,3 +478,30 @@ Ruby syntax, Homebrew style and the native strict cask audit passed. CLI/gateway
 formulas remain 0.16.46. Verification and publication evidence is retained in
 shared `.mobius/releases.nosync/desktop/0.10.28-44/`. Installed-package upgrade
 tests were not run; GitHub Actions stayed disabled.
+
+
+On 2026-11-05, CLI and gateway formulas advanced together to 0.16.47 from
+`a0309a7eabeb1dd56aee46411d2d663608c55976`, following the released CLI's exact
+`=0.16.47` gateway dependency. All four immutable Apple Silicon and x86-64 Linux
+archive pins match the fresh public-download evidence: all 110 packaged files,
+executable modes, Mac versions and isolated Linux execution checks were verified.
+Protocol 97 and persisted formats are unchanged from 0.16.44, so no additional
+state conversion is required. The new declared repeat-guard defaults are added
+when existing configuration is saved; existing selections and revisions remain.
+
+The desktop cask advanced to stable 0.10.29 (45), bundling gateway 0.16.47 /
+protocol 97, from desktop source `ebff079523d06b1f3e9030d39acc5c6785e0bdcc`.
+The immutable signed, notarized ZIP has SHA-256
+`db1922af74b1ebad681f53dfaf30cb405ff476e9d00b7d512bd0ccf31d9fb1ec`.
+All six public assets match their signed retained originals. After all three
+Cloud gateways passed acceptance, the fixed ZIP and DMG were verified before
+activating the signed build-45 appcast, which retains 19 older entries.
+
+The three canonical definitions passed Ruby syntax, Homebrew style and native
+strict formula/cask audits. The two existing Homebrew test blocks (seven lines)
+are byte unchanged. Installed-package installation/upgrade checks were not run;
+the installed möbius tap, packages and local gateway were not changed. GitHub
+Actions remained disabled. Packaging receipts are retained in shared
+`.mobius/releases.nosync/homebrew/0.16.47-desktop-0.10.29/`, with source/artifact
+verification in `.mobius/releases.nosync/release-0.16.47/` and signed desktop
+publication evidence in `.mobius/releases.nosync/desktop/0.10.29-45/`.
