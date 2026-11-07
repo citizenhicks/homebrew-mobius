@@ -505,3 +505,27 @@ Actions remained disabled. Packaging receipts are retained in shared
 `.mobius/releases.nosync/homebrew/0.16.47-desktop-0.10.29/`, with source/artifact
 verification in `.mobius/releases.nosync/release-0.16.47/` and signed desktop
 publication evidence in `.mobius/releases.nosync/desktop/0.10.29-45/`.
+
+On 2026-11-07, CLI and gateway formulas advanced together to 0.16.48 from
+`20fe9464796a69f0ce8c48bb7dfb0d43ed6619d1`. All four immutable Apple Silicon and
+x86-64 Linux archive pins match freshly verified public downloads and retained
+release artifacts. The three crates were published in dependency order. Protocol
+97 and persisted formats are unchanged from 0.16.47; no further state conversion
+is required from 0.16.44 or later.
+
+The desktop cask advanced to stable 0.10.30 (46), bundling gateway 0.16.48, from
+desktop source `913f45a0b3325e7bcda182d6d1afe45a5e91ae80`. Its signed, notarized
+ZIP SHA256 is `f8e6e0aa5c19d095c34a2141ff492f80a0db8996088255bcc7d89a4e126daa5a`.
+All six anonymous immutable assets match the retained signed release. After all
+four Cloud accounts passed acceptance, fixed ZIP and DMG replacements passed fresh
+anonymous verification before activating the signed build-46 feed, retaining 19
+older entries.
+
+All three definitions passed Ruby syntax, Homebrew style and native strict
+formula/cask audits. The two existing formula test blocks (seven lines) are byte
+unchanged. Installed-package installation/upgrade checks were not run; installed
+taps, packages and the local gateway were not restarted. GitHub Actions stayed
+disabled. Packaging receipts remain in shared
+`.mobius/releases.nosync/homebrew/0.16.48-desktop-0.10.30/`, with artifact and rollout
+evidence in `.mobius/releases.nosync/release-0.16.48/` and signed desktop publication
+evidence in `.mobius/releases.nosync/desktop/0.10.30-46/`.
