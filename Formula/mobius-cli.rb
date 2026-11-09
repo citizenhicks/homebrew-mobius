@@ -8,16 +8,16 @@ class MobiusCli < Formula
   on_macos do
     depends_on arch: :arm64
     on_arm do
-      url "https://github.com/citizenhicks/mobius/releases/download/mobius-cli-v0.16.48/mobius-0.16.48-aarch64-apple-darwin.tar.gz"
-      sha256 "af62ad975a7d2b0e97b98982425772889f3072b5f58ab4d127e8ece17488460a"
+      url "https://github.com/citizenhicks/mobius/releases/download/mobius-cli-v0.16.49/mobius-0.16.49-aarch64-apple-darwin.tar.gz"
+      sha256 "c09f0f9f9738687c7fcf7481ad2d81d4f50f291cc3fc86e2f05b4a6f3d780362"
     end
   end
 
   on_linux do
     depends_on arch: :x86_64
     on_intel do
-      url "https://github.com/citizenhicks/mobius/releases/download/mobius-cli-v0.16.48/mobius-0.16.48-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "a2b330f6ed2dd4339f7e43784b0cd9c095aaf5777fadf7d85e78778bd2e0782c"
+      url "https://github.com/citizenhicks/mobius/releases/download/mobius-cli-v0.16.49/mobius-0.16.49-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "221d43e4a30921515edb0b022f2f9cf8623317f982d5348680e6f2428a07a82d"
     end
   end
 
