@@ -552,3 +552,24 @@ gateway were not restarted. GitHub Actions stayed disabled. Packaging receipts
 remain in shared `.mobius/releases.nosync/homebrew/0.16.49-desktop-0.10.31/`, with
 artifact and rollout evidence in `.mobius/releases.nosync/release-0.16.49/` and
 signed desktop evidence in `.mobius/releases.nosync/desktop/0.10.31-47/`.
+
+
+On 2026-11-09, CLI and gateway formulas advanced together to 0.16.50 from
+`bc41d720a642a84c6114243e13bfc51a56fd9d1e`, after the three crates were
+published in dependency order. All four archive pins match freshly verified
+public downloads. Protocol 99 is unchanged.
+
+The desktop cask advanced to stable 0.10.32 (48), built from
+`caf105ce73e98bbd6178df1a417ae09cc5afff80` and bundling gateway 0.16.50. Its
+signed, notarized ZIP SHA256 is
+`a0b47d54bf8ee91c22bd7193153ce1a73b28b6b4e9a08f6a823d5af0dd4cfc80`.
+The immutable assets and fixed ZIP, DMG and signed appcast passed anonymous
+verification after Cloud acceptance for the three allocated accounts and its
+global future-provisioning pin.
+
+Ruby syntax, Homebrew style and native strict formula/cask audits passed. The two
+existing formula test blocks are unchanged. Installed-package installation and
+upgrade checks were not run. Receipts remain in shared
+`.mobius/releases.nosync/homebrew/0.16.50-desktop-0.10.32/`, with artifact and
+rollout evidence in `.mobius/releases.nosync/release-0.16.50/` and signed desktop
+evidence in `.mobius/releases.nosync/desktop/0.10.32-48/`.
