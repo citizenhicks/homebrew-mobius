@@ -578,3 +578,16 @@ On 2026-11-10, the desktop cask advanced to 0.10.33 (49), bundling gateway
 0.16.50 / protocol 99. Its signed ZIP and DMG, public downloads, Sparkle signature
 and fixed update feed were verified before the cask update. CLI and gateway
 formulas remain at 0.16.50.
+
+On 2026-11-10, CLI, gateway and desktop advanced together to 0.17.2 (desktop
+build 52, tagged source `422124d72136fd21a5163f840786939c1df6fa4a`). The existing
+package updater committed `7e55f00`; run `42788722216` passed strict formula
+style/audits and install/upgrade/binary tests on macOS and Linux, plus the Mac
+cask style and archive fetch. The desktop ZIP separately passed checksum,
+Sparkle signature, deep Developer ID, notarization and Gatekeeper checks, and
+stable promotion verified the fixed ZIP/DMG bytes against the signed originals.
+Ordinary packaging pushes run full checks only when Formula or Casks change;
+PRs, manual checks and the updater's exact-commit qualification remain full.
+Existing config-29 state requires the documented manual conversion before use.
+Local installed binaries are upgraded after their gateway state backup and
+conversion; the package CI results do not claim that local upgrade is complete.

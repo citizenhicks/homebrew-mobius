@@ -29,20 +29,23 @@ and x86-64 Linux.
 
 The Mac app is Developer ID signed and notarized.
 
-CLI/gateway **0.16.50** requires protocol **99** clients. State from before
-**0.16.44** requires manual offline conversion to Bot state **10**, checkpoint
-**21**, and checkpoint SQLite schema **14**. Gateway config **29** and Bot SQLite
-schema **6** stay unchanged; the scratchpad capability becomes memory. Stop all
-writers, retain verified backups, and validate a disposable copy before converting.
-Startup does not migrate configuration or history. Do not use the older portable
-upgrade scripts for this conversion. See the
-[0.16.44 release notes](https://github.com/citizenhicks/mobius/releases/tag/mobius-gateway-v0.16.44).
-Upgrading from 0.16.44 through 0.16.49 to 0.16.50 needs no additional configuration or history conversion.
-Memory now uses linked Markdown pages. Existing legacy memory rows are retained but are not migrated into pages.
+CLI, gateway and desktop **0.17.2** use protocol **100**. The desktop bundles
+its matching gateway. Upgrade other gateways used by these clients to protocol 100.
 
-The current desktop cask **0.10.33** uses protocol **99** and bundles gateway
-**0.16.50**. Keep gateways used by older protocol clients on their compatible
-release until those clients are upgraded.
+Existing config **29** needs offline conversion to **30**: stop every writer,
+retain verified state/database backups, preserve the complete usage record in
+owner-only `usage.json`, remove the two retired OAuth callback timeout settings,
+and materialize any missing middleware defaults without changing saved choices.
+Convert custom model catalogs to shared reasoning presets, then run the released
+`check-config` before starting. Preserve pairing identity, Bots, memory pages,
+checkpoints and attachments. Bot state **10**, Bot SQLite **6**, checkpoint **21**
+and checkpoint SQLite **14** remain unchanged from 0.16.50. See the
+[offline upgrade instructions](https://github.com/citizenhicks/mobius/releases/tag/mobius-gateway-v0.17.1).
+
+State older than 0.16.44 also needs its earlier manual data conversion; see the
+[0.16.44 notes](https://github.com/citizenhicks/mobius/releases/tag/mobius-gateway-v0.16.44).
+Memory uses linked Markdown pages; legacy memory rows remain stored until migrated
+manually. Startup does not migrate configuration or history.
 
 After preparing the state, upgrade using `brew update` and `brew upgrade`, then
 reopen the CLI or run `mobius-gateway`. Starting a newer gateway automatically
