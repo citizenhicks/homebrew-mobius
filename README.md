@@ -40,7 +40,7 @@ upgrade scripts for this conversion. See the
 Upgrading from 0.16.44 through 0.16.49 to 0.16.50 needs no additional configuration or history conversion.
 Memory now uses linked Markdown pages. Existing legacy memory rows are retained but are not migrated into pages.
 
-The current desktop cask **0.10.32** uses protocol **99** and bundles gateway
+The current desktop cask **0.10.33** uses protocol **99** and bundles gateway
 **0.16.50**. Keep gateways used by older protocol clients on their compatible
 release until those clients are upgraded.
 

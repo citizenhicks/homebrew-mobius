@@ -573,3 +573,8 @@ upgrade checks were not run. Receipts remain in shared
 `.mobius/releases.nosync/homebrew/0.16.50-desktop-0.10.32/`, with artifact and
 rollout evidence in `.mobius/releases.nosync/release-0.16.50/` and signed desktop
 evidence in `.mobius/releases.nosync/desktop/0.10.32-48/`.
+
+On 2026-11-10, the desktop cask advanced to 0.10.33 (49), bundling gateway
+0.16.50 / protocol 99. Its signed ZIP and DMG, public downloads, Sparkle signature
+and fixed update feed were verified before the cask update. CLI and gateway
+formulas remain at 0.16.50.
