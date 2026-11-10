@@ -589,5 +589,10 @@ stable promotion verified the fixed ZIP/DMG bytes against the signed originals.
 Ordinary packaging pushes run full checks only when Formula or Casks change;
 PRs, manual checks and the updater's exact-commit qualification remain full.
 Existing config-29 state requires the documented manual conversion before use.
-Local installed binaries are upgraded after their gateway state backup and
-conversion; the package CI results do not claim that local upgrade is complete.
+Local CLI and gateway executables now report 0.17.2. The installed signed Mac
+app is 0.17.2 (52), and its embedded gateway answered an authenticated Ready
+frame with version 0.17.2 / protocol 100. The stopped local state was fully
+archived and all 1,500 files verified before converting config 29 to 30; all 48
+usage days, saved Bots and pairing credentials were preserved. The previous app
+and gateway state remain in shared rollback storage. Scoped Homebrew cleanup
+removed the superseded installed formula versions after these checks.
