@@ -650,3 +650,19 @@ in run `42981992236`. Cloud advanced all three allocated gateways while preservi
 volumes and suspended account intent; external TestFlight 0.10.0 (495) is approved
 and available. Physical-device/APNs acceptance remains a user check. Temporary
 extraction copies and generated build output were removed after retaining evidence.
+
+
+## 0.17.6, 2026-11-11
+
+CLI, gateway and desktop packages are stable at 0.17.6; the Mac app is build 56
+with embedded gateway 0.17.6. Protocol 101 and configuration 30 are unchanged,
+so existing 0.17.5 state needs no conversion. All source tags point to
+`9e17218ade64129338552ae413e254e2b072fbdf`.
+
+Updater commit `c46951559c07313274d6ce951be6d6ada07415f3` passed Linux and macOS
+package/install checks in run `43021232112`. Published archives match their
+checksums; the Mac ZIP passed Sparkle, deep/strict Developer ID, stapled
+notarization and Gatekeeper checks. Its headless `__serve --version` path reports
+0.17.6 without opening a window. Stable appcast 0.17.6/build 56 was verified.
+Signed outputs, symbols and receipts remain in shared
+`.mobius/releases.nosync/0.17.6/`; disposable build and duplicate downloads were removed.
