@@ -28,11 +28,12 @@ class MobiusGateway < Formula
 
   def caveats
     <<~EOS
-      This gateway requires protocol 99 clients, config 29, Bot state 10,
+      This gateway requires protocol 101 clients, config 30, Bot state 10,
       checkpoint 21, and checkpoint SQLite schema 14 (Bot SQLite remains 6).
-      Earlier state requires manual offline conversion. Stop all writers,
+      State prepared for 0.17.2 needs no further conversion.
+      Config 29 requires manual offline conversion. Stop all writers,
       retain verified backups, and validate a disposable copy before upgrading:
-        https://github.com/citizenhicks/mobius/releases/tag/mobius-gateway-v0.16.44
+        https://github.com/citizenhicks/mobius/releases/tag/mobius-gateway-v0.17.1
       Older clients cannot connect. Do not use the older portable upgrade
       scripts for this conversion.
       Starting the gateway does not migrate old configuration or history.

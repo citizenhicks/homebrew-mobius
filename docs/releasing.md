@@ -596,3 +596,18 @@ archived and all 1,500 files verified before converting config 29 to 30; all 48
 usage days, saved Bots and pairing credentials were preserved. The previous app
 and gateway state remain in shared rollback storage. Scoped Homebrew cleanup
 removed the superseded installed formula versions after these checks.
+
+On 2026-11-11, CLI, gateway and desktop advanced to 0.17.3 (desktop build 53),
+from source `6aa19d3d88e2e46bd8ded1c01cfbfe1647e3776d`. The existing updater
+committed `b101e3c`; run `42943730748` passed formula style/audits and package
+install, upgrade and binary tests on macOS and Linux, plus the Mac cask archive
+fetch. All five package pins use the published immutable archive checksums.
+The signed desktop ZIP independently passed deep/strict Developer ID, Gatekeeper,
+stapled notarization and Sparkle checks. Fixed public ZIP/DMG streams match the
+signed archives, and the update feed serves build 53 with 19 prior entries.
+
+Protocol advances to 101. Persisted formats are unchanged from 0.17.2, so that
+state needs no further conversion. README and gateway caveats now carry the
+current protocol and config requirements. Release evidence is retained in shared
+`.mobius/releases.nosync/release-0.17.3/`. Installed local packages and gateway
+state were not changed during this rollout.

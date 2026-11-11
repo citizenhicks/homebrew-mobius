@@ -29,8 +29,9 @@ and x86-64 Linux.
 
 The Mac app is Developer ID signed and notarized.
 
-CLI, gateway and desktop **0.17.2** use protocol **100**. The desktop bundles
-its matching gateway. Upgrade other gateways used by these clients to protocol 100.
+CLI, gateway and desktop **0.17.3** use protocol **101**. The desktop bundles
+its matching gateway. Upgrade other gateways used by these clients to protocol 101.
+State already prepared for 0.17.2 needs no further conversion.
 
 Existing config **29** needs offline conversion to **30**: stop every writer,
 retain verified state/database backups, preserve the complete usage record in
