@@ -611,3 +611,22 @@ state needs no further conversion. README and gateway caveats now carry the
 current protocol and config requirements. Release evidence is retained in shared
 `.mobius/releases.nosync/release-0.17.3/`. Installed local packages and gateway
 state were not changed during this rollout.
+
+
+On 2026-11-11, CLI, gateway and desktop advanced together to **0.17.4** from
+source `6b5c890a00d30292ef878cb0bde67f013e717573`. Desktop build **54** embeds gateway
+0.17.4. Protocol **101** and configuration **30** are unchanged from 0.17.3, so
+that upgrade requires no state conversion.
+
+All three crates published in dependency order. Core Linux/macOS qualification,
+desktop qualification, binary release jobs and signed desktop promotion passed.
+Fresh CLI/gateway archives matched their published checksums and contain licenses
+and manuals; the downloaded Mac binaries report 0.17.4. The desktop ZIP passed
+Sparkle signature, deep/strict Developer ID, Gatekeeper and stapled notarization
+checks. Its bundle version/build and embedded gateway were checked directly, and
+the stable feed plus fixed ZIP/DMG match the verified immutable release. Native
+symbols and provenance are retained in the shared private release storage.
+
+The package updater committed `9daee9a`; its Linux and macOS package definition,
+install/upgrade and binary checks passed in run `42958838387`. Temporary extraction
+copies and local build output were removed after retaining release evidence.
