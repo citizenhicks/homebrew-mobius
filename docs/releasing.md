@@ -630,3 +630,23 @@ symbols and provenance are retained in the shared private release storage.
 The package updater committed `9daee9a`; its Linux and macOS package definition,
 install/upgrade and binary checks passed in run `42958838387`. Temporary extraction
 copies and local build output were removed after retaining release evidence.
+
+
+On 2026-11-11, CLI, gateway and desktop advanced together to **0.17.5** from
+source `e60ef2bf9251687d2a15079cd53307342a3ac7c8`. Desktop build **55** embeds gateway
+0.17.5. Protocol **101**, configuration **30** and saved-state schemas are unchanged
+from 0.17.3; no gateway data conversion was needed.
+
+All three crates published in dependency order. Core and desktop qualification,
+Linux/macOS binary publishing and signed desktop promotion passed. Downloaded
+archives match the published checksums. The desktop passed Sparkle signature,
+deep/strict Developer ID signature and stapled notarization checks outside the
+iCloud-backed workspace; stable appcast and fixed download digests match the
+immutable packages. Native symbols, provenance and rollout receipts are retained
+in shared `.mobius/releases.nosync/0.17.5/`.
+
+Package updater commit `d78361a` and Linux/macOS install and package checks passed
+in run `42981992236`. Cloud advanced all three allocated gateways while preserving
+volumes and suspended account intent; external TestFlight 0.10.0 (495) is approved
+and available. Physical-device/APNs acceptance remains a user check. Temporary
+extraction copies and generated build output were removed after retaining evidence.
