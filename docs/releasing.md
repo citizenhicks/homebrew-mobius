@@ -666,3 +666,29 @@ notarization and Gatekeeper checks. Its headless `__serve --version` path report
 0.17.6 without opening a window. Stable appcast 0.17.6/build 56 was verified.
 Signed outputs, symbols and receipts remain in shared
 `.mobius/releases.nosync/0.17.6/`; disposable build and duplicate downloads were removed.
+
+
+## 0.17.7, 2026-11-12
+
+CLI, gateway and desktop packages are stable at 0.17.7. The Mac app is build 57
+and embeds gateway 0.17.7. Protocol 101 and configuration 30 are unchanged;
+existing 0.17.6 gateway state needs no conversion. Framework, gateway and CLI
+use source `666a2d29ddd6b046b359951518b2dfeb038146a7`; desktop uses
+`84fef9f36cc267265a880efd04989d7755ff175b`, which adds the native check assertion
+fix. The cut includes the earlier model catalog and managed browser security
+updates. Cloud users must sign in once again after the credential isolation change.
+
+All three crates published in dependency order. Final Linux/macOS core and
+desktop qualification passed. Published terminal archives match their checksums,
+contain licenses and manuals, and their Mac binaries report 0.17.7. The desktop
+ZIP passed Sparkle signature, deep/strict Developer ID, Gatekeeper and stapled
+notarization checks outside Documents. Its version, build, embedded gateway,
+source provenance and native symbols were checked. The live appcast and fixed
+ZIP/DMG digests match the verified immutable release.
+
+Package updater commit `043318314400ab2fb86581671c09dd16a606d020` passed Linux and macOS package/install
+checks in run `43205182162`. Signed packages, native symbols, source receipts,
+qualification results and review captures are retained in shared
+`.mobius/releases.nosync/0.17.7/`. Installed local apps and gateway state were not
+changed during publication. Real Apple/custom-provider sign-in and physical
+age-sheet interaction remain unverified.

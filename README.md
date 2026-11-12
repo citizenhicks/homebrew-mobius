@@ -29,9 +29,11 @@ and x86-64 Linux.
 
 The Mac app is Developer ID signed and notarized.
 
-CLI, gateway and desktop **0.17.6** use protocol **101**. The desktop bundles
+CLI, gateway and desktop **0.17.7** use protocol **101**. The desktop bundles
 its matching gateway. Upgrade other gateways used by these clients to protocol 101.
 State already prepared for 0.17.2 needs no further conversion.
+The 0.17.7 Mac update requires a fresh Cloud sign-in because credentials are now
+isolated by the complete service URL.
 
 Existing config **29** needs offline conversion to **30**: stop every writer,
 retain verified state/database backups, preserve the complete usage record in
