@@ -29,8 +29,9 @@ and x86-64 Linux.
 
 The Mac app is Developer ID signed and notarized.
 
-CLI and gateway **0.17.9** and desktop **0.17.8** all use protocol **102**. The
-desktop bundles its matching gateway. Upgrade other gateways used by these clients to protocol 102.
+CLI, gateway and desktop **0.17.10** use protocol **103**. The desktop bundles
+its matching gateway. Upgrade other gateways used by these clients to protocol 103;
+protocol 102 clients and gateways cannot connect to them.
 State already prepared for 0.17.2 needs no further conversion.
 The 0.17.7 Mac update requires a fresh Cloud sign-in because credentials are now
 isolated by the complete service URL.
