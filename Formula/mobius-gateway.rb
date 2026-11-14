@@ -6,16 +6,16 @@ class MobiusGateway < Formula
   on_macos do
     depends_on arch: :arm64
     on_arm do
-      url "https://github.com/citizenhicks/mobius/releases/download/mobius-gateway-v0.17.7/mobius-gateway-0.17.7-aarch64-apple-darwin.tar.gz"
-      sha256 "f018627041e26f929c1fbff144492f4c130ab67657cb721bad2fec51eca9bcf1"
+      url "https://github.com/citizenhicks/mobius/releases/download/mobius-gateway-v0.17.8/mobius-gateway-0.17.8-aarch64-apple-darwin.tar.gz"
+      sha256 "3e8bd03b212632e0688bc5e16c9f557f5bcab1ec508f1694a17c16c9befb7b2f"
     end
   end
 
   on_linux do
     depends_on arch: :x86_64
     on_intel do
-      url "https://github.com/citizenhicks/mobius/releases/download/mobius-gateway-v0.17.7/mobius-gateway-0.17.7-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "45bb4081dd3a8a748f7789c13aff1cc534a32c32949d35c4c5c316c2b22eb718"
+      url "https://github.com/citizenhicks/mobius/releases/download/mobius-gateway-v0.17.8/mobius-gateway-0.17.8-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "f48a449c50bc24c8ed041883e77475bc68b11f0c6c07f9371ab2ae22dc7b8434"
     end
   end
 
@@ -28,7 +28,7 @@ class MobiusGateway < Formula
 
   def caveats
     <<~EOS
-      This gateway requires protocol 101 clients, config 30, Bot state 10,
+      This gateway requires protocol 102 clients, config 30, Bot state 10,
       checkpoint 21, and checkpoint SQLite schema 14 (Bot SQLite remains 6).
       State prepared for 0.17.2 needs no further conversion.
       Config 29 requires manual offline conversion. Stop all writers,

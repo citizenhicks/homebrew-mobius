@@ -692,3 +692,21 @@ qualification results and review captures are retained in shared
 `.mobius/releases.nosync/0.17.7/`. Installed local apps and gateway state were not
 changed during publication. Real Apple/custom-provider sign-in and physical
 age-sheet interaction remain unverified.
+
+## 2026-11-14 · 0.17.8 / protocol 102
+
+CLI, gateway and desktop advance together to 0.17.8; the desktop is stable build
+58. Pins/checksums come from the immutable official releases at framework source
+`08ec5991b2b690b373e7f0c8c086a22a9de7f562`. All versioned public assets were downloaded
+back and verified against retained originals. Both fixed desktop downloads and the
+signed build-58 update feed were verified after promotion. The Developer ID signed
+ZIP/DMG passed notarization, stapling, Gatekeeper, entitlement and matching-symbol
+checks. Protocol-102 Cloud global pins and all three allocated gateways were ready
+before the client promotion; config 30 / Bot 10 / checkpoint 21 need no conversion
+from 0.17.7.
+
+Canonical definitions passed Ruby syntax, Homebrew style and native strict formula
+and cask audits. All qualification ran locally; GitHub Actions stayed disabled.
+The installed tap and active packages were left untouched, so installation and
+upgrade checks were not repeated. Release/provenance, archive and audit evidence
+is retained under shared `.mobius/releases.nosync/0.17.8/`.
