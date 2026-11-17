@@ -29,10 +29,14 @@ and x86-64 Linux.
 
 The Mac app is Developer ID signed and notarized.
 
-CLI, gateway and desktop **0.17.10** use protocol **103**. The desktop bundles
-its matching gateway. Upgrade other gateways used by these clients to protocol 103;
-protocol 102 clients and gateways cannot connect to them.
-State already prepared for 0.17.2 needs no further conversion.
+CLI, gateway and desktop **0.17.11** use protocol **104**. The desktop bundles
+its matching gateway. Upgrade other gateways used by these clients to protocol 104;
+protocol 103 clients and gateways cannot connect to them.
+Existing state needs a qualified offline conversion before starting 0.17.11:
+Bot SQLite 6 to 7 and checkpoint SQLite 14 to 15, including retained
+error/token/context journal events. Stop every writer and retain verified backups
+of both databases first. Startup does not migrate state. See the
+[0.17.11 upgrade notes](https://github.com/citizenhicks/mobius/releases/tag/mobius-gateway-v0.17.11).
 The 0.17.7 Mac update requires a fresh Cloud sign-in because credentials are now
 isolated by the complete service URL.
 
@@ -42,8 +46,8 @@ owner-only `usage.json`, remove the two retired OAuth callback timeout settings,
 and materialize any missing middleware defaults without changing saved choices.
 Convert custom model catalogs to shared reasoning presets, then run the released
 `check-config` before starting. Preserve pairing identity, Bots, memory pages,
-checkpoints and attachments. Bot state **10**, Bot SQLite **6**, checkpoint **21**
-and checkpoint SQLite **14** remain unchanged from 0.16.50. See the
+checkpoints and attachments. Bot state **10**, Bot SQLite **7**, checkpoint **21**
+and checkpoint SQLite **15** are the 0.17.11 target formats. See the
 [offline upgrade instructions](https://github.com/citizenhicks/mobius/releases/tag/mobius-gateway-v0.17.1).
 
 State older than 0.16.44 also needs its earlier manual data conversion; see the
