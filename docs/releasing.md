@@ -717,3 +717,13 @@ is retained under shared `.mobius/releases.nosync/0.17.8/`.
 CLI, gateway and desktop packages select protocol 104 from source dffd4626390f1fb54a29dbe784469fc01ce03ea0. Desktop build 60 is signed, notarized and stapled. All three crates were published locally in dependency order with GitHub Actions disabled; public binary archives and the desktop assets were downloaded back and matched retained originals. The desktop Sparkle signature passed before stable promotion.
 
 The Linux binaries passed 50 gateway protocol assertions and five real-PTY CLI checks in the existing Colima x86-64 Ubuntu 22.04 environment. Existing config 30, Bot state 10 and raw checkpoint 21 remain, while Bot SQLite 6->7 and checkpoint SQLite 14->15 require qualified offline conversion. Cloud rollout/migration is separately owned and was not performed by this release. Signed assets, symbols, upload/submission receipts and local qualification are retained in shared `.mobius/releases.nosync/0.17.11/`.
+
+## 0.17.12, 2026-11-18
+
+The CLI and gateway formulas use the Apple Silicon and x86-64 Linux archives
+from framework commit `aaae4d4b4fb3fd110807a427e7da6ba7fe764a16`. The cask uses
+the notarized desktop ZIP for build 61. Each pinned archive was downloaded from
+its public release URL and matched its locally built SHA-256. Both platforms
+passed 50 gateway protocol checks, eight recovery checks and five terminal checks.
+The formulas and cask passed Homebrew style and strict audits. Protocol remains
+104 and upgrading from 0.17.11 requires no database conversion.
