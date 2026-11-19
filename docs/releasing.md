@@ -727,3 +727,13 @@ its public release URL and matched its locally built SHA-256. Both platforms
 passed 50 gateway protocol checks, eight recovery checks and five terminal checks.
 The formulas and cask passed Homebrew style and strict audits. Protocol remains
 104 and upgrading from 0.17.11 requires no database conversion.
+
+## 0.17.14, 2026-11-20
+
+The CLI and gateway formulas use the Apple Silicon and x86-64 Linux archives
+from framework commit `ba7b67c8ffbfe11c9ec1d41e4192e0e574302d23`. The cask uses
+the notarized desktop ZIP for build 62. Each pinned archive was downloaded from
+its public release URL and matched its locally built SHA-256. Both platforms
+passed 50 gateway protocol checks, eight recovery checks and the terminal checks.
+Protocol remains 104 and upgrading from 0.17.11 or 0.17.12 requires no database
+conversion. Version 0.17.13 was skipped.

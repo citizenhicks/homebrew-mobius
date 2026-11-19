@@ -6,16 +6,16 @@ class MobiusGateway < Formula
   on_macos do
     depends_on arch: :arm64
     on_arm do
-      url "https://github.com/citizenhicks/mobius/releases/download/mobius-gateway-v0.17.12/mobius-gateway-0.17.12-aarch64-apple-darwin.tar.gz"
-      sha256 "0acc56f14b70d41c9bbe753e6c36e71d23a8371ffc94f2ffee52a75aeda48b09"
+      url "https://github.com/citizenhicks/mobius/releases/download/mobius-gateway-v0.17.14/mobius-gateway-0.17.14-aarch64-apple-darwin.tar.gz"
+      sha256 "7197c17b4193137288132ee78e23cfcaa87467a0e9fb92da94084870318e201d"
     end
   end
 
   on_linux do
     depends_on arch: :x86_64
     on_intel do
-      url "https://github.com/citizenhicks/mobius/releases/download/mobius-gateway-v0.17.12/mobius-gateway-0.17.12-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "6ed3bf779dec8bfe07829b782f8bd1cfd8f76d839dd3effbfedd87ec3daf9a0d"
+      url "https://github.com/citizenhicks/mobius/releases/download/mobius-gateway-v0.17.14/mobius-gateway-0.17.14-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "30aea0a2951dfb5974ceb628c42be2b96675e3a7b1bb303bf9e903c7f13399e2"
     end
   end
 
