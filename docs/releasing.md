@@ -737,3 +737,7 @@ its public release URL and matched its locally built SHA-256. Both platforms
 passed 50 gateway protocol checks, eight recovery checks and the terminal checks.
 Protocol remains 104 and upgrading from 0.17.11 or 0.17.12 requires no database
 conversion. Version 0.17.13 was skipped.
+
+## 0.17.17
+
+On 2026-11-23 the CLI and gateway formulae moved to the 0.17.17 Apple Silicon and x86-64 Linux archives. The macOS cask moved to the stable 0.17.17 build 65 ZIP. All five checksums match the immutable GitHub release assets. The command-line packages and desktop bundle use gateway protocol 106.
