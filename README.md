@@ -29,9 +29,9 @@ and x86-64 Linux.
 
 The Mac app is Developer ID signed and notarized.
 
-CLI, gateway and desktop **0.17.18** use protocol **106**. The desktop bundles
+CLI, gateway and desktop **0.17.19** use protocol **106**. The desktop bundles
 its matching gateway. Remote clients and gateways must both use protocol 106.
-Users upgrading from 0.17.17 can keep their existing configuration and databases.
+Users upgrading from 0.17.17 or 0.17.18 can keep their existing configuration and databases.
 When upgrading from 0.17.14 or earlier, apply the clock setting described in the
 [0.17.15 gateway upgrade notes](https://github.com/citizenhicks/mobius/releases/tag/mobius-gateway-v0.17.15).
 

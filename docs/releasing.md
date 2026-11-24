@@ -745,3 +745,11 @@ On 2026-11-23 the CLI and gateway formulae moved to the 0.17.17 Apple Silicon an
 ## 0.17.18
 
 On 2026-11-24 the CLI, gateway and desktop build 66 shipped from `9f8262d6c7e9fa169a24c0d9c7d90e82102ac5a0`. All five package checksums matched the immutable public releases. In an isolated Apple Silicon Homebrew prefix, both formulae upgraded from 0.17.17 and passed their package tests. The cask installed build 66 with its 0.17.18 embedded gateway and passed Gatekeeper. The signed app exported files through both the 0.17.17 and 0.17.18 gateways on protocol 106.
+
+On 2026-11-24, CLI and gateway 0.17.19 and desktop build 67 shipped from
+`d88e288cd1fa266186194aab09e08a00450786cd`. Five package pins matched the
+published archives. The formulae upgraded from 0.17.18 in an isolated Apple
+Silicon Homebrew prefix and both package tests passed. The cask installed the
+notarized app with its 0.17.19 embedded gateway. The signed executable showed
+the folder and Bot icons next to Split and Auto on protocol 106. Public ZIP,
+DMG and appcast readback matched the signed release.
