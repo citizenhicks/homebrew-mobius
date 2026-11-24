@@ -29,10 +29,13 @@ and x86-64 Linux.
 
 The Mac app is Developer ID signed and notarized.
 
-CLI, gateway and desktop **0.17.11** use protocol **104**. The desktop bundles
-its matching gateway. Upgrade other gateways used by these clients to protocol 104;
-protocol 103 clients and gateways cannot connect to them.
-Existing state needs a qualified offline conversion before starting 0.17.11:
+CLI, gateway and desktop **0.17.18** use protocol **106**. The desktop bundles
+its matching gateway. Remote clients and gateways must both use protocol 106.
+Users upgrading from 0.17.17 can keep their existing configuration and databases.
+When upgrading from 0.17.14 or earlier, apply the clock setting described in the
+[0.17.15 gateway upgrade notes](https://github.com/citizenhicks/mobius/releases/tag/mobius-gateway-v0.17.15).
+
+State from before 0.17.11 also needs the offline database conversion for that release:
 Bot SQLite 6 to 7 and checkpoint SQLite 14 to 15, including retained
 error/token/context journal events. Stop every writer and retain verified backups
 of both databases first. Startup does not migrate state. See the

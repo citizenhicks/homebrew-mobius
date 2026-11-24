@@ -6,16 +6,16 @@ class MobiusGateway < Formula
   on_macos do
     depends_on arch: :arm64
     on_arm do
-      url "https://github.com/citizenhicks/mobius/releases/download/mobius-gateway-v0.17.17/mobius-gateway-0.17.17-aarch64-apple-darwin.tar.gz"
-      sha256 "2b812bb13f52027570e9c458e890e83a3498f61e6cd281a4e75be5db359a2a08"
+      url "https://github.com/citizenhicks/mobius/releases/download/mobius-gateway-v0.17.18/mobius-gateway-0.17.18-aarch64-apple-darwin.tar.gz"
+      sha256 "93df246dd637ec26f1a01ecccb22f8f78c017f47d18dc7e7cf60afb30bbdf0e0"
     end
   end
 
   on_linux do
     depends_on arch: :x86_64
     on_intel do
-      url "https://github.com/citizenhicks/mobius/releases/download/mobius-gateway-v0.17.17/mobius-gateway-0.17.17-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "ba7d346f67a16b7728f7890e3f9cd19c3418f9b040d09f9e038ab9d353ed6dfd"
+      url "https://github.com/citizenhicks/mobius/releases/download/mobius-gateway-v0.17.18/mobius-gateway-0.17.18-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "d85716def1eae6573d533318f5b051a54d71d6b36fb8888187ba48e66ee87a45"
     end
   end
 
@@ -28,14 +28,16 @@ class MobiusGateway < Formula
 
   def caveats
     <<~EOS
-      This gateway requires protocol 102 clients, config 30, Bot state 10,
-      checkpoint 21, and checkpoint SQLite schema 14 (Bot SQLite remains 6).
-      State prepared for 0.17.2 needs no further conversion.
+      This gateway requires protocol 106 clients, config 30, Bot state 10,
+      Bot SQLite schema 7, checkpoint 21, and checkpoint SQLite schema 15.
+      For state from 0.17.14 or earlier, see the clock setting in:
+        https://github.com/citizenhicks/mobius/releases/tag/mobius-gateway-v0.17.15
+      For state from before 0.17.11, see the offline database conversion in:
+        https://github.com/citizenhicks/mobius/releases/tag/mobius-gateway-v0.17.11
       Config 29 requires manual offline conversion. Stop all writers,
       retain verified backups, and validate a disposable copy before upgrading:
         https://github.com/citizenhicks/mobius/releases/tag/mobius-gateway-v0.17.1
-      Older clients cannot connect. Do not use the older portable upgrade
-      scripts for this conversion.
+      The older portable upgrade scripts do not perform this conversion.
       Starting the gateway does not migrate old configuration or history.
       Memory pages now use Markdown files; old memory rows are retained but not migrated.
       Run `mobius-gateway` to open gateway setup.
