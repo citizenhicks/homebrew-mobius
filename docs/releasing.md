@@ -753,3 +753,10 @@ Silicon Homebrew prefix and both package tests passed. The cask installed the
 notarized app with its 0.17.19 embedded gateway. The signed executable showed
 the folder and Bot icons next to Split and Auto on protocol 106. Public ZIP,
 DMG and appcast readback matched the signed release.
+
+On 2026-11-25, the CLI and gateway formulas and desktop cask advanced to
+0.17.20 from source `5725b124681473d8981bf75ae7c6708fdac1cf8b`. Both
+formulas upgraded from 0.17.19 in an isolated Apple Silicon prefix and passed
+their package tests. The installed cask passed Gatekeeper and reported embedded
+gateway 0.17.20. Both platform archives passed the external hook steering
+exercise. Desktop build 68 and the gateway use protocol 106.
