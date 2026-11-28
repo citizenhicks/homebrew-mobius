@@ -1,21 +1,19 @@
 class MobiusGateway < Formula
   desc "Headless host for möbius Bots and sessions"
   homepage "https://github.com/citizenhicks/mobius"
+  url "https://github.com/citizenhicks/mobius/releases/download/mobius-gateway-v0.17.22/mobius-gateway-0.17.22-aarch64-apple-darwin.tar.gz"
+  sha256 "ac0eb30ceb4b85a2e310d6adf518f32dbdca91416a1bb5cc844716de11246c97"
   license "Apache-2.0"
 
   on_macos do
     depends_on arch: :arm64
-    on_arm do
-      url "https://github.com/citizenhicks/mobius/releases/download/mobius-gateway-v0.17.20/mobius-gateway-0.17.20-aarch64-apple-darwin.tar.gz"
-      sha256 "5d7250378ecd32d60d6f46f3556bb8d8e2dea28affa8ce3db4cbf374ee44ca60"
-    end
   end
 
   on_linux do
     depends_on arch: :x86_64
     on_intel do
-      url "https://github.com/citizenhicks/mobius/releases/download/mobius-gateway-v0.17.20/mobius-gateway-0.17.20-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "aee2a8deee5050fa21f6ef8e509e58147ad1269e1d7f4e55387da57127250df1"
+      url "https://github.com/citizenhicks/mobius/releases/download/mobius-gateway-v0.17.22/mobius-gateway-0.17.22-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "1b565d2f6ac57f1d051649166fe983381ab584a2b3ef4186eb6c89ba313b80de"
     end
   end
 
@@ -28,8 +26,11 @@ class MobiusGateway < Formula
 
   def caveats
     <<~EOS
-      This gateway requires protocol 106 clients, config 30, Bot state 10,
+      This gateway requires protocol 111 clients, config 30, Bot state 10,
       Bot SQLite schema 7, checkpoint 21, and checkpoint SQLite schema 15.
+      Before upgrading from 0.17.19–0.17.21, stop all writers, back up both SQLite
+      databases, and apply the indexes in the gateway release notes:
+        https://github.com/citizenhicks/mobius/releases/tag/mobius-gateway-v0.17.22
       For state from 0.17.14 or earlier, see the clock setting in:
         https://github.com/citizenhicks/mobius/releases/tag/mobius-gateway-v0.17.15
       For state from before 0.17.11, see the offline database conversion in:

@@ -760,3 +760,16 @@ formulas upgraded from 0.17.19 in an isolated Apple Silicon prefix and passed
 their package tests. The installed cask passed Gatekeeper and reported embedded
 gateway 0.17.20. Both platform archives passed the external hook steering
 exercise. Desktop build 68 and the gateway use protocol 106.
+
+## CLI and gateway 0.17.22 on 2026-11-28
+
+Both formulas distribute the protocol-111 binaries from framework commit
+`e2e3b134`. The Apple Silicon archive supplies each formula's base URL. The
+Intel Linux block selects its corresponding archive, and each operating system
+declares the architecture required for installation. Homebrew can parse the
+formulas across its validation matrix. The gateway caveat links to the offline
+SQLite index instructions.
+
+A disposable Apple Silicon Homebrew prefix upgraded both installed formulas from
+0.17.20 to 0.17.22. Both formula tests, strict audits, style and cross-platform
+formula parsing passed. The Linux archives ran in an x86-64 Ubuntu container.
